@@ -46,7 +46,7 @@
             // 
             // sidePanel
             // 
-            this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
             this.sidePanel.Controls.Add(this.panel1);
             this.sidePanel.Controls.Add(this.btnTabQuestion);
             this.sidePanel.Controls.Add(this.btnTabTeam);
@@ -54,12 +54,12 @@
             this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel.Location = new System.Drawing.Point(1, 1);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(200, 448);
+            this.sidePanel.Size = new System.Drawing.Size(200, 640);
             this.sidePanel.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -76,9 +76,9 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(45, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 34);
+            this.label1.Size = new System.Drawing.Size(115, 34);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Quizoman";
+            this.label1.Text = "Quizzy";
             this.label1.DoubleClick += new System.EventHandler(this.topPanel_DoubleClick);
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dragWindow);
             // 
@@ -112,7 +112,7 @@
             // 
             // btnTabQuiz
             // 
-            this.btnTabQuiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(129)))), ((int)(((byte)(129)))));
+            this.btnTabQuiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             this.btnTabQuiz.FlatAppearance.BorderSize = 0;
             this.btnTabQuiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTabQuiz.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,19 +131,19 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(201, 1);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(598, 448);
+            this.mainPanel.Size = new System.Drawing.Size(798, 640);
             this.mainPanel.TabIndex = 1;
             // 
             // topPanel
             // 
-            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(72)))));
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
             this.topPanel.Controls.Add(this.btnMinimize);
             this.topPanel.Controls.Add(this.btnMaximize);
             this.topPanel.Controls.Add(this.btnClose);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(201, 1);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(598, 41);
+            this.topPanel.Size = new System.Drawing.Size(798, 42);
             this.topPanel.TabIndex = 2;
             this.topPanel.DoubleClick += new System.EventHandler(this.topPanel_DoubleClick);
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dragWindow);
@@ -157,7 +157,7 @@
             this.btnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Location = new System.Drawing.Point(500, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(700, 0);
             this.btnMinimize.MaximumSize = new System.Drawing.Size(36, 36);
             this.btnMinimize.MinimumSize = new System.Drawing.Size(36, 36);
             this.btnMinimize.Name = "btnMinimize";
@@ -175,7 +175,7 @@
             this.btnMaximize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnMaximize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximize.Location = new System.Drawing.Point(533, 4);
+            this.btnMaximize.Location = new System.Drawing.Point(733, 4);
             this.btnMaximize.MaximumSize = new System.Drawing.Size(36, 36);
             this.btnMaximize.MinimumSize = new System.Drawing.Size(36, 36);
             this.btnMaximize.Name = "btnMaximize";
@@ -194,7 +194,7 @@
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(566, 3);
+            this.btnClose.Location = new System.Drawing.Point(766, 3);
             this.btnClose.MaximumSize = new System.Drawing.Size(36, 36);
             this.btnClose.MinimumSize = new System.Drawing.Size(36, 36);
             this.btnClose.Name = "btnClose";
@@ -208,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(72)))), ((int)(((byte)(72)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1000, 642);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.sidePanel);

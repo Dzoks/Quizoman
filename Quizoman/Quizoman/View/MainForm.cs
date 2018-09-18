@@ -15,10 +15,9 @@ namespace Quizoman
 {
     public partial class MainForm : Form
     {
-       
 
-        private Color menuBtnClickedColor = Color.FromArgb(127, 127, 127);
-        private Color menuBtnColor = Color.FromArgb(33, 33, 33);
+        private Color menuBtnClickedColor = Color.FromArgb(38,40, 47);
+        private Color menuBtnColor = Color.FromArgb(51, 51, 61);
         public MainForm()
         {
               
@@ -31,12 +30,12 @@ namespace Quizoman
 
         private void btnTabQuiz_Click(object sender, EventArgs e)
         {
-            clearColors();
+            ClearColors();
             btnTabQuiz.BackColor = menuBtnClickedColor;
             selectControl(new QuizzesView());
         }
 
-        private void clearColors()
+        private void ClearColors()
         {
             btnTabQuestion.BackColor = menuBtnColor;
             btnTabQuiz.BackColor = menuBtnColor;
@@ -45,14 +44,14 @@ namespace Quizoman
 
         private void btnTabTeam_Click(object sender, EventArgs e)
         {
-            clearColors();
+            ClearColors();
             btnTabTeam.BackColor = menuBtnClickedColor;
             selectControl(new TeamsView());
         }
 
         private void btnTabQuestion_Click(object sender, EventArgs e)
         {
-            clearColors();
+            ClearColors();
             btnTabQuestion.BackColor = menuBtnClickedColor;
            selectControl(new QuestionsView());
         }
@@ -172,7 +171,6 @@ namespace Quizoman
 
         private void dragWindow(object sender, MouseEventArgs e)
         {
-            //ctrl-leftclick anywhere on the control to drag the form to a new location 
             if (e.Clicks==1 && e.Button == MouseButtons.Left && WindowState==FormWindowState.Normal)
             {
                 ReleaseCapture();
