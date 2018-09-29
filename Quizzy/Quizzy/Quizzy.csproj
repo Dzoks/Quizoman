@@ -85,6 +85,18 @@
     <Compile Include="View\AddQuestionForm.Designer.cs">
       <DependentUpon>AddQuestionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AddRoundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddRoundForm.Designer.cs">
+      <DependentUpon>AddRoundForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddSeasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddSeasonForm.Designer.cs">
+      <DependentUpon>AddSeasonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AreYouSurePopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +153,12 @@
     </Compile>
     <EmbeddedResource Include="View\AddQuestionForm.resx">
       <DependentUpon>AddQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddRoundForm.resx">
+      <DependentUpon>AddRoundForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddSeasonForm.resx">
+      <DependentUpon>AddSeasonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AreYouSurePopup.resx">
       <DependentUpon>AreYouSurePopup.cs</DependentUpon>

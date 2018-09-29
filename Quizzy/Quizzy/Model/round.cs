@@ -22,9 +22,6 @@ namespace Quizzy.Model
         [StringLength(45)]
         public string name { get; set; }
 
-        [Column(TypeName = "timestamp")]
-        public DateTime date { get; set; }
-
         public int season_id { get; set; }
 
         public sbyte deleted { get; set; }

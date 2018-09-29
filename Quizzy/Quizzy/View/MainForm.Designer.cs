@@ -48,28 +48,15 @@
             this.lblPlaces = new System.Windows.Forms.Label();
             this.dtTeams = new System.Windows.Forms.DataGridView();
             this.TeamCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamDeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dtQuestions = new System.Windows.Forms.DataGridView();
-            this.dtSeasonTeams = new System.Windows.Forms.DataGridView();
-            this.SeasonCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddTeam = new System.Windows.Forms.Button();
-            this.btnAddQuestion = new System.Windows.Forms.Button();
-            this.roundquestionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamDeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.teamidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roundidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teamroundBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seasonidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deletedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seasonhasteamBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.questionsView = new Quizzy.View.QuestionsView();
+            this.dtQuestions = new System.Windows.Forms.DataGridView();
             this.UpCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.questionnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DownCln = new System.Windows.Forms.DataGridViewImageColumn();
@@ -82,13 +69,31 @@
             this.roundidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletedDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roundDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roundquestionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtSeasonTeams = new System.Windows.Forms.DataGridView();
+            this.SeasonCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seasonidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deletedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seasonhasteamBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddTeam = new System.Windows.Forms.Button();
+            this.btnAddQuestion = new System.Windows.Forms.Button();
+            this.questionsView = new Quizzy.View.QuestionsView();
+            this.btnAddTreeView = new System.Windows.Forms.Button();
+            this.menuAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dodajteSezonuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajteKvizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTeams)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtSeasonTeams)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundquestionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamroundBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roundquestionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSeasonTeams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seasonhasteamBindingSource)).BeginInit();
+            this.menuAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
@@ -331,6 +336,23 @@
             this.TeamCountCln.ReadOnly = true;
             this.TeamCountCln.Width = 60;
             // 
+            // teamDataGridViewTextBoxColumn1
+            // 
+            this.teamDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.teamDataGridViewTextBoxColumn1.DataPropertyName = "team";
+            this.teamDataGridViewTextBoxColumn1.HeaderText = "Naziv tima";
+            this.teamDataGridViewTextBoxColumn1.Name = "teamDataGridViewTextBoxColumn1";
+            this.teamDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn1
+            // 
+            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn1.FillWeight = 60F;
+            this.totalDataGridViewTextBoxColumn1.HeaderText = "Bodovi";
+            this.totalDataGridViewTextBoxColumn1.MinimumWidth = 60;
+            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
+            this.totalDataGridViewTextBoxColumn1.Width = 60;
+            // 
             // TeamDeleteCln
             // 
             this.TeamDeleteCln.FillWeight = 38F;
@@ -338,6 +360,42 @@
             this.TeamDeleteCln.MinimumWidth = 38;
             this.TeamDeleteCln.Name = "TeamDeleteCln";
             this.TeamDeleteCln.Width = 38;
+            // 
+            // teamidDataGridViewTextBoxColumn1
+            // 
+            this.teamidDataGridViewTextBoxColumn1.DataPropertyName = "team_id";
+            this.teamidDataGridViewTextBoxColumn1.HeaderText = "team_id";
+            this.teamidDataGridViewTextBoxColumn1.Name = "teamidDataGridViewTextBoxColumn1";
+            this.teamidDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.teamidDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // roundidDataGridViewTextBoxColumn
+            // 
+            this.roundidDataGridViewTextBoxColumn.DataPropertyName = "round_id";
+            this.roundidDataGridViewTextBoxColumn.HeaderText = "round_id";
+            this.roundidDataGridViewTextBoxColumn.Name = "roundidDataGridViewTextBoxColumn";
+            this.roundidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roundidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // deletedDataGridViewTextBoxColumn1
+            // 
+            this.deletedDataGridViewTextBoxColumn1.DataPropertyName = "deleted";
+            this.deletedDataGridViewTextBoxColumn1.HeaderText = "deleted";
+            this.deletedDataGridViewTextBoxColumn1.Name = "deletedDataGridViewTextBoxColumn1";
+            this.deletedDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.deletedDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // roundDataGridViewTextBoxColumn
+            // 
+            this.roundDataGridViewTextBoxColumn.DataPropertyName = "round";
+            this.roundDataGridViewTextBoxColumn.HeaderText = "round";
+            this.roundDataGridViewTextBoxColumn.Name = "roundDataGridViewTextBoxColumn";
+            this.roundDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roundDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // teamroundBindingSource
+            // 
+            this.teamroundBindingSource.DataSource = typeof(Quizzy.Model.team_round);
             // 
             // dtQuestions
             // 
@@ -393,231 +451,9 @@
             this.dtQuestions.Size = new System.Drawing.Size(599, 506);
             this.dtQuestions.TabIndex = 2;
             this.dtQuestions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellClick);
-            this.dtQuestions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.s);
             this.dtQuestions.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellMouseEnter);
             this.dtQuestions.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellMouseLeave);
             this.dtQuestions.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtQuestions_DataBindingComplete);
-            // 
-            // dtSeasonTeams
-            // 
-            this.dtSeasonTeams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtSeasonTeams.AutoGenerateColumns = false;
-            this.dtSeasonTeams.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.dtSeasonTeams.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtSeasonTeams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtSeasonTeams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.dtSeasonTeams.ColumnHeadersHeight = 38;
-            this.dtSeasonTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dtSeasonTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SeasonCountCln,
-            this.teamDataGridViewTextBoxColumn,
-            this.totalDataGridViewTextBoxColumn,
-            this.seasonidDataGridViewTextBoxColumn,
-            this.teamidDataGridViewTextBoxColumn,
-            this.deletedDataGridViewTextBoxColumn,
-            this.seasonDataGridViewTextBoxColumn});
-            this.dtSeasonTeams.DataSource = this.seasonhasteamBindingSource;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtSeasonTeams.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dtSeasonTeams.EnableHeadersVisualStyles = false;
-            this.dtSeasonTeams.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(87)))));
-            this.dtSeasonTeams.Location = new System.Drawing.Point(260, 78);
-            this.dtSeasonTeams.MultiSelect = false;
-            this.dtSeasonTeams.Name = "dtSeasonTeams";
-            this.dtSeasonTeams.ReadOnly = true;
-            this.dtSeasonTeams.RowHeadersVisible = false;
-            this.dtSeasonTeams.RowTemplate.Height = 38;
-            this.dtSeasonTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtSeasonTeams.Size = new System.Drawing.Size(599, 506);
-            this.dtSeasonTeams.TabIndex = 2;
-            this.dtSeasonTeams.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtSeasonTeams_DataBindingComplete);
-            // 
-            // SeasonCountCln
-            // 
-            this.SeasonCountCln.FillWeight = 60F;
-            this.SeasonCountCln.HeaderText = "Mjesto";
-            this.SeasonCountCln.MinimumWidth = 60;
-            this.SeasonCountCln.Name = "SeasonCountCln";
-            this.SeasonCountCln.ReadOnly = true;
-            this.SeasonCountCln.Width = 60;
-            // 
-            // btnAddTeam
-            // 
-            this.btnAddTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddTeam.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddTeam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.btnAddTeam.FlatAppearance.BorderSize = 0;
-            this.btnAddTeam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddTeam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTeam.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAddTeam.Image = global::Quizzy.Properties.Resources.add;
-            this.btnAddTeam.Location = new System.Drawing.Point(526, 431);
-            this.btnAddTeam.Name = "btnAddTeam";
-            this.btnAddTeam.Size = new System.Drawing.Size(78, 77);
-            this.btnAddTeam.TabIndex = 4;
-            this.btnAddTeam.UseVisualStyleBackColor = false;
-            this.btnAddTeam.Click += new System.EventHandler(this.btnAddTeam_Click);
-            this.btnAddTeam.MouseEnter += new System.EventHandler(this.btnAddTeam_MouseEnter);
-            this.btnAddTeam.MouseLeave += new System.EventHandler(this.btnAddTeam_MouseLeave);
-            // 
-            // btnAddQuestion
-            // 
-            this.btnAddQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddQuestion.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddQuestion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.btnAddQuestion.FlatAppearance.BorderSize = 0;
-            this.btnAddQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAddQuestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAddQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddQuestion.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAddQuestion.Image = global::Quizzy.Properties.Resources.add;
-            this.btnAddQuestion.Location = new System.Drawing.Point(526, 431);
-            this.btnAddQuestion.Name = "btnAddQuestion";
-            this.btnAddQuestion.Size = new System.Drawing.Size(78, 77);
-            this.btnAddQuestion.TabIndex = 4;
-            this.btnAddQuestion.UseVisualStyleBackColor = false;
-            this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
-            this.btnAddQuestion.MouseEnter += new System.EventHandler(this.btnAddQuestion_MouseEnter);
-            this.btnAddQuestion.MouseLeave += new System.EventHandler(this.btnAddQuestion_MouseLeave);
-            // 
-            // roundquestionBindingSource
-            // 
-            this.roundquestionBindingSource.DataSource = typeof(Quizzy.Model.round_question);
-            // 
-            // teamDataGridViewTextBoxColumn1
-            // 
-            this.teamDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.teamDataGridViewTextBoxColumn1.DataPropertyName = "team";
-            this.teamDataGridViewTextBoxColumn1.HeaderText = "Naziv tima";
-            this.teamDataGridViewTextBoxColumn1.Name = "teamDataGridViewTextBoxColumn1";
-            this.teamDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // totalDataGridViewTextBoxColumn1
-            // 
-            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn1.FillWeight = 60F;
-            this.totalDataGridViewTextBoxColumn1.HeaderText = "Bodovi";
-            this.totalDataGridViewTextBoxColumn1.MinimumWidth = 60;
-            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
-            this.totalDataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // teamidDataGridViewTextBoxColumn1
-            // 
-            this.teamidDataGridViewTextBoxColumn1.DataPropertyName = "team_id";
-            this.teamidDataGridViewTextBoxColumn1.HeaderText = "team_id";
-            this.teamidDataGridViewTextBoxColumn1.Name = "teamidDataGridViewTextBoxColumn1";
-            this.teamidDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.teamidDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // roundidDataGridViewTextBoxColumn
-            // 
-            this.roundidDataGridViewTextBoxColumn.DataPropertyName = "round_id";
-            this.roundidDataGridViewTextBoxColumn.HeaderText = "round_id";
-            this.roundidDataGridViewTextBoxColumn.Name = "roundidDataGridViewTextBoxColumn";
-            this.roundidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roundidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // deletedDataGridViewTextBoxColumn1
-            // 
-            this.deletedDataGridViewTextBoxColumn1.DataPropertyName = "deleted";
-            this.deletedDataGridViewTextBoxColumn1.HeaderText = "deleted";
-            this.deletedDataGridViewTextBoxColumn1.Name = "deletedDataGridViewTextBoxColumn1";
-            this.deletedDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.deletedDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // roundDataGridViewTextBoxColumn
-            // 
-            this.roundDataGridViewTextBoxColumn.DataPropertyName = "round";
-            this.roundDataGridViewTextBoxColumn.HeaderText = "round";
-            this.roundDataGridViewTextBoxColumn.Name = "roundDataGridViewTextBoxColumn";
-            this.roundDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roundDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // teamroundBindingSource
-            // 
-            this.teamroundBindingSource.DataSource = typeof(Quizzy.Model.team_round);
-            // 
-            // teamDataGridViewTextBoxColumn
-            // 
-            this.teamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.teamDataGridViewTextBoxColumn.DataPropertyName = "team";
-            this.teamDataGridViewTextBoxColumn.HeaderText = "Naziv tima";
-            this.teamDataGridViewTextBoxColumn.Name = "teamDataGridViewTextBoxColumn";
-            this.teamDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn.FillWeight = 69F;
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Bodovi";
-            this.totalDataGridViewTextBoxColumn.MinimumWidth = 60;
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // seasonidDataGridViewTextBoxColumn
-            // 
-            this.seasonidDataGridViewTextBoxColumn.DataPropertyName = "season_id";
-            this.seasonidDataGridViewTextBoxColumn.HeaderText = "season_id";
-            this.seasonidDataGridViewTextBoxColumn.Name = "seasonidDataGridViewTextBoxColumn";
-            this.seasonidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seasonidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // teamidDataGridViewTextBoxColumn
-            // 
-            this.teamidDataGridViewTextBoxColumn.DataPropertyName = "team_id";
-            this.teamidDataGridViewTextBoxColumn.HeaderText = "team_id";
-            this.teamidDataGridViewTextBoxColumn.Name = "teamidDataGridViewTextBoxColumn";
-            this.teamidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.teamidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // deletedDataGridViewTextBoxColumn
-            // 
-            this.deletedDataGridViewTextBoxColumn.DataPropertyName = "deleted";
-            this.deletedDataGridViewTextBoxColumn.HeaderText = "deleted";
-            this.deletedDataGridViewTextBoxColumn.Name = "deletedDataGridViewTextBoxColumn";
-            this.deletedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.deletedDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // seasonDataGridViewTextBoxColumn
-            // 
-            this.seasonDataGridViewTextBoxColumn.DataPropertyName = "season";
-            this.seasonDataGridViewTextBoxColumn.HeaderText = "season";
-            this.seasonDataGridViewTextBoxColumn.Name = "seasonDataGridViewTextBoxColumn";
-            this.seasonDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seasonDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // seasonhasteamBindingSource
-            // 
-            this.seasonhasteamBindingSource.DataSource = typeof(Quizzy.Model.season_has_team);
-            // 
-            // questionsView
-            // 
-            this.questionsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.questionsView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
-            this.questionsView.Database = null;
-            this.questionsView.Location = new System.Drawing.Point(0, 41);
-            this.questionsView.Name = "questionsView";
-            this.questionsView.Size = new System.Drawing.Size(882, 558);
-            this.questionsView.TabIndex = 6;
             // 
             // UpCln
             // 
@@ -726,6 +562,226 @@
             this.roundDataGridViewTextBoxColumn1.ReadOnly = true;
             this.roundDataGridViewTextBoxColumn1.Visible = false;
             // 
+            // roundquestionBindingSource
+            // 
+            this.roundquestionBindingSource.DataSource = typeof(Quizzy.Model.round_question);
+            // 
+            // dtSeasonTeams
+            // 
+            this.dtSeasonTeams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtSeasonTeams.AutoGenerateColumns = false;
+            this.dtSeasonTeams.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.dtSeasonTeams.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtSeasonTeams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtSeasonTeams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dtSeasonTeams.ColumnHeadersHeight = 38;
+            this.dtSeasonTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtSeasonTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SeasonCountCln,
+            this.teamDataGridViewTextBoxColumn,
+            this.totalDataGridViewTextBoxColumn,
+            this.seasonidDataGridViewTextBoxColumn,
+            this.teamidDataGridViewTextBoxColumn,
+            this.deletedDataGridViewTextBoxColumn,
+            this.seasonDataGridViewTextBoxColumn});
+            this.dtSeasonTeams.DataSource = this.seasonhasteamBindingSource;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtSeasonTeams.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dtSeasonTeams.EnableHeadersVisualStyles = false;
+            this.dtSeasonTeams.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(87)))));
+            this.dtSeasonTeams.Location = new System.Drawing.Point(260, 78);
+            this.dtSeasonTeams.MultiSelect = false;
+            this.dtSeasonTeams.Name = "dtSeasonTeams";
+            this.dtSeasonTeams.ReadOnly = true;
+            this.dtSeasonTeams.RowHeadersVisible = false;
+            this.dtSeasonTeams.RowTemplate.Height = 38;
+            this.dtSeasonTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtSeasonTeams.Size = new System.Drawing.Size(599, 506);
+            this.dtSeasonTeams.TabIndex = 2;
+            this.dtSeasonTeams.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtSeasonTeams_DataBindingComplete);
+            // 
+            // SeasonCountCln
+            // 
+            this.SeasonCountCln.FillWeight = 60F;
+            this.SeasonCountCln.HeaderText = "Mjesto";
+            this.SeasonCountCln.MinimumWidth = 60;
+            this.SeasonCountCln.Name = "SeasonCountCln";
+            this.SeasonCountCln.ReadOnly = true;
+            this.SeasonCountCln.Width = 60;
+            // 
+            // teamDataGridViewTextBoxColumn
+            // 
+            this.teamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.teamDataGridViewTextBoxColumn.DataPropertyName = "team";
+            this.teamDataGridViewTextBoxColumn.HeaderText = "Naziv tima";
+            this.teamDataGridViewTextBoxColumn.Name = "teamDataGridViewTextBoxColumn";
+            this.teamDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn.FillWeight = 69F;
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Bodovi";
+            this.totalDataGridViewTextBoxColumn.MinimumWidth = 60;
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // seasonidDataGridViewTextBoxColumn
+            // 
+            this.seasonidDataGridViewTextBoxColumn.DataPropertyName = "season_id";
+            this.seasonidDataGridViewTextBoxColumn.HeaderText = "season_id";
+            this.seasonidDataGridViewTextBoxColumn.Name = "seasonidDataGridViewTextBoxColumn";
+            this.seasonidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.seasonidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // teamidDataGridViewTextBoxColumn
+            // 
+            this.teamidDataGridViewTextBoxColumn.DataPropertyName = "team_id";
+            this.teamidDataGridViewTextBoxColumn.HeaderText = "team_id";
+            this.teamidDataGridViewTextBoxColumn.Name = "teamidDataGridViewTextBoxColumn";
+            this.teamidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.teamidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // deletedDataGridViewTextBoxColumn
+            // 
+            this.deletedDataGridViewTextBoxColumn.DataPropertyName = "deleted";
+            this.deletedDataGridViewTextBoxColumn.HeaderText = "deleted";
+            this.deletedDataGridViewTextBoxColumn.Name = "deletedDataGridViewTextBoxColumn";
+            this.deletedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.deletedDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // seasonDataGridViewTextBoxColumn
+            // 
+            this.seasonDataGridViewTextBoxColumn.DataPropertyName = "season";
+            this.seasonDataGridViewTextBoxColumn.HeaderText = "season";
+            this.seasonDataGridViewTextBoxColumn.Name = "seasonDataGridViewTextBoxColumn";
+            this.seasonDataGridViewTextBoxColumn.ReadOnly = true;
+            this.seasonDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // seasonhasteamBindingSource
+            // 
+            this.seasonhasteamBindingSource.DataSource = typeof(Quizzy.Model.season_has_team);
+            // 
+            // btnAddTeam
+            // 
+            this.btnAddTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddTeam.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddTeam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnAddTeam.FlatAppearance.BorderSize = 0;
+            this.btnAddTeam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddTeam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTeam.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAddTeam.Image = global::Quizzy.Properties.Resources.add;
+            this.btnAddTeam.Location = new System.Drawing.Point(526, 431);
+            this.btnAddTeam.Name = "btnAddTeam";
+            this.btnAddTeam.Size = new System.Drawing.Size(78, 77);
+            this.btnAddTeam.TabIndex = 4;
+            this.btnAddTeam.UseVisualStyleBackColor = false;
+            this.btnAddTeam.Click += new System.EventHandler(this.btnAddTeam_Click);
+            this.btnAddTeam.MouseEnter += new System.EventHandler(this.btnAddTeam_MouseEnter);
+            this.btnAddTeam.MouseLeave += new System.EventHandler(this.btnAddTeam_MouseLeave);
+            // 
+            // btnAddQuestion
+            // 
+            this.btnAddQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddQuestion.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddQuestion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnAddQuestion.FlatAppearance.BorderSize = 0;
+            this.btnAddQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddQuestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddQuestion.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAddQuestion.Image = global::Quizzy.Properties.Resources.add;
+            this.btnAddQuestion.Location = new System.Drawing.Point(526, 431);
+            this.btnAddQuestion.Name = "btnAddQuestion";
+            this.btnAddQuestion.Size = new System.Drawing.Size(78, 77);
+            this.btnAddQuestion.TabIndex = 4;
+            this.btnAddQuestion.UseVisualStyleBackColor = false;
+            this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
+            this.btnAddQuestion.MouseEnter += new System.EventHandler(this.btnAddQuestion_MouseEnter);
+            this.btnAddQuestion.MouseLeave += new System.EventHandler(this.btnAddQuestion_MouseLeave);
+            // 
+            // questionsView
+            // 
+            this.questionsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.questionsView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.questionsView.Database = null;
+            this.questionsView.Location = new System.Drawing.Point(0, 41);
+            this.questionsView.Name = "questionsView";
+            this.questionsView.Size = new System.Drawing.Size(882, 558);
+            this.questionsView.TabIndex = 6;
+            // 
+            // btnAddTreeView
+            // 
+            this.btnAddTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddTreeView.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddTreeView.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
+            this.btnAddTreeView.FlatAppearance.BorderSize = 0;
+            this.btnAddTreeView.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddTreeView.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddTreeView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTreeView.ForeColor = System.Drawing.Color.Transparent;
+            this.btnAddTreeView.Image = global::Quizzy.Properties.Resources.add;
+            this.btnAddTreeView.Location = new System.Drawing.Point(162, 481);
+            this.btnAddTreeView.Name = "btnAddTreeView";
+            this.btnAddTreeView.Size = new System.Drawing.Size(78, 77);
+            this.btnAddTreeView.TabIndex = 4;
+            this.btnAddTreeView.UseVisualStyleBackColor = false;
+            this.btnAddTreeView.Click += new System.EventHandler(this.btnAddTreeView_Click);
+            this.btnAddTreeView.MouseEnter += new System.EventHandler(this.btnAddTreeView_MouseEnter);
+            this.btnAddTreeView.MouseLeave += new System.EventHandler(this.btnAddTreeView_MouseLeave);
+            // 
+            // menuAdd
+            // 
+            this.menuAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.menuAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuAdd.DropShadowEnabled = false;
+            this.menuAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajteSezonuToolStripMenuItem,
+            this.dodajteKvizToolStripMenuItem});
+            this.menuAdd.Name = "menuAdd";
+            this.menuAdd.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuAdd.ShowImageMargin = false;
+            this.menuAdd.ShowItemToolTips = false;
+            this.menuAdd.Size = new System.Drawing.Size(169, 56);
+            // 
+            // dodajteSezonuToolStripMenuItem
+            // 
+            this.dodajteSezonuToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.dodajteSezonuToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.dodajteSezonuToolStripMenuItem.Name = "dodajteSezonuToolStripMenuItem";
+            this.dodajteSezonuToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.dodajteSezonuToolStripMenuItem.Text = "Dodajte sezonu";
+            this.dodajteSezonuToolStripMenuItem.Click += new System.EventHandler(this.dodajteSezonuToolStripMenuItem_Click);
+            // 
+            // dodajteKvizToolStripMenuItem
+            // 
+            this.dodajteKvizToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.dodajteKvizToolStripMenuItem.Name = "dodajteKvizToolStripMenuItem";
+            this.dodajteKvizToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
+            this.dodajteKvizToolStripMenuItem.Text = "Dodajte kviz";
+            this.dodajteKvizToolStripMenuItem.Click += new System.EventHandler(this.dodajteKvizToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -733,6 +789,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(884, 600);
             this.Controls.Add(this.lblPlaces);
+            this.Controls.Add(this.btnAddTreeView);
             this.Controls.Add(this.btnAddTeam);
             this.Controls.Add(this.btnAddQuestion);
             this.Controls.Add(this.btnQuestions);
@@ -751,11 +808,12 @@
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTeams)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtSeasonTeams)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roundquestionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamroundBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roundquestionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSeasonTeams)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seasonhasteamBindingSource)).EndInit();
+            this.menuAdd.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -811,6 +869,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn roundidDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn deletedDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn roundDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Button btnAddTreeView;
+        private System.Windows.Forms.ContextMenuStrip menuAdd;
+        private System.Windows.Forms.ToolStripMenuItem dodajteSezonuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajteKvizToolStripMenuItem;
     }
 }
 

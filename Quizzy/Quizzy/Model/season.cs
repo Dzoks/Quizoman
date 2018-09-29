@@ -22,6 +22,11 @@ namespace Quizzy.Model
         [StringLength(45)]
         public string name { get; set; }
 
+        public override string ToString()
+        {
+            return name;
+        }
+
         public sbyte deleted { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

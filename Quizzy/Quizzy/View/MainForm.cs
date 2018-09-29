@@ -39,6 +39,7 @@ namespace Quizzy
             btnQuiz.BackColor = BackgroundColor;
             btnQuestion.BackColor = PrimaryColor;
             questionsView.Hide();
+            btnAddTreeView.Parent = seasonTreeView;
 
             loadMainForm();
 
@@ -710,8 +711,41 @@ namespace Quizzy
             }
         }
 
-        private void s(object sender, DataGridViewCellEventArgs e)
+        private void btnAddTreeView_Click(object sender, EventArgs e)
         {
+            menuAdd.Show(Cursor.Position,ToolStripDropDownDirection.AboveRight);
+           
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+           
+        }
+
+        private void dodajteSezonuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form=new AddSeasonForm(database);
+            form.ShowDialog(this);
+            if (form.Success)
+            loadMainForm();
+        }
+
+        private void dodajteKvizToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new AddRoundForm(database);
+            form.ShowDialog(this);
+            if (form.Success)
+                loadMainForm();
+        }
+
+        private void btnAddTreeView_MouseEnter(object sender, EventArgs e)
+        {
+            btnAddTreeView.Image = Resources.add_fade;
+        }
+
+        private void btnAddTreeView_MouseLeave(object sender, EventArgs e)
+        {
+            btnAddTreeView.Image = Resources.add;
 
         }
     }

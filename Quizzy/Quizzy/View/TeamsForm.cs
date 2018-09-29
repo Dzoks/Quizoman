@@ -29,10 +29,10 @@ namespace Quizzy.View
             var allTeams = database.teams.Where(t => t.deleted == 0).ToList();
             var availableTeamsString= allTeams.Except(roundTeams).Select(t=>t.name).ToList();
             autocompleteCollection.AddRange(availableTeamsString.ToArray());
-            fldTeam.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            fldTeam.AutoCompleteCustomSource = autocompleteCollection;
-            fldTeam.AutoCompleteMode = AutoCompleteMode.Append;
-            btnAddQuestion.Enabled = false;
+            fldSeason.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            fldSeason.AutoCompleteCustomSource = autocompleteCollection;
+            fldSeason.AutoCompleteMode = AutoCompleteMode.Append;
+            btnAdd.Enabled = false;
         }
 
         private void topPanel_MouseDown(object sender, MouseEventArgs e)
@@ -79,7 +79,7 @@ namespace Quizzy.View
 
         private void btnAddQuestion_Click(object sender, EventArgs e)
         {
-            team newTeam=database.teams.FirstOrDefault(r => r.name == fldTeam.Text);
+            team newTeam=database.teams.FirstOrDefault(r => r.name == fldSeason.Text);
             if (newTeam != null &&
                 database.team_round.FirstOrDefault(t =>
                     t.round_id == round.id && t.deleted == 0 && t.team_id == newTeam.id) != null)
@@ -91,7 +91,7 @@ namespace Quizzy.View
             {
                 newTeam=new team()
                 {
-                    name = fldTeam.Text,
+                    name = fldSeason.Text,
                     deleted = 0,
                 };
             }
@@ -121,7 +121,7 @@ namespace Quizzy.View
 
         private void fldTeam_TextChanged(object sender, EventArgs e)
         {
-            btnAddQuestion.Enabled = fldTeam.Text.Length > 0;
+            btnAdd.Enabled = fldSeason.Text.Length > 0;
         }
     }
 }
