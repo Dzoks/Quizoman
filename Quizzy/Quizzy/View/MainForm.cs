@@ -18,6 +18,8 @@ namespace Quizzy
     public partial class MainForm : Form
     {
         private QuizzyDB database;
+
+        public static Color ButtonColor = Color.FromArgb(54, 54, 64);
         public static  Color BackgroundColor=Color.FromArgb(50,51,61);
         public static Color PrimaryColor = Color.FromArgb(55, 55, 64);
         public static Color TreeNodeColor = Color.FromArgb(51,51,61);
@@ -30,9 +32,23 @@ namespace Quizzy
 
         public MainForm()
         {
+            database = new QuizzyDB();
+
             InitializeComponent();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            database=new QuizzyDB();
+            btnQuiz.BackColor = BackgroundColor;
+            btnQuestion.BackColor = PrimaryColor;
+            questionsView.Hide();
+
+            loadMainForm();
+
+           
+        }
+
+        private void loadMainForm()
+        {
+
+            seasonTreeView.Nodes.Clear();
             foreach (var season in database.seasons.Include("rounds"))
             {
                 TreeNode node = new TreeNode()
@@ -60,7 +76,7 @@ namespace Quizzy
             dtSeasonTeams.Hide();
             dtTeams.Hide();
             lblPlaces.Hide();
-            
+
             dtQuestions.Hide();
         }
 
@@ -206,8 +222,8 @@ namespace Quizzy
 
         private void btnTeams_Click(object sender, EventArgs e)
         {
-            btnTeams.BackColor = PrimaryColor;
-            btnQuestions.BackColor = BackgroundColor;
+            btnTeams.BackColor = TableColor;
+            btnQuestions.BackColor = ButtonColor;
             dtQuestions.Hide();
             dtTeams.Show();
             dtTeams.DataSource = database.team_round.Where(r => r.deleted == 0 && r.round_id == selectedRound.id)
@@ -216,16 +232,14 @@ namespace Quizzy
 
         private void btnQuestions_Click(object sender, EventArgs e)
         {
-            btnQuestions.BackColor = PrimaryColor;
-            btnTeams.BackColor = BackgroundColor;
+            btnQuestions.BackColor = TableColor;
+            btnTeams.BackColor = ButtonColor;
             dtTeams.Hide();
             dtQuestions.Show();
             btnAddQuestion.Show();
-
             dtQuestions.DataSource = database.round_question
-                .Where(q => q.round_id == selectedRound.id && q.deleted == 0).Include("question").OrderBy(q => q.question_number).ToList();
-            // TODO Load Questions for selected Round
-
+                    .Where(q => q.round_id == selectedRound.id && q.deleted == 0).Include("question").OrderBy(q => q.question_number).ToList(); ;
+            dtQuestions.ClearSelection();
         }
 
         private void seasonTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -364,6 +378,8 @@ namespace Quizzy
         {
             btnTeams.Hide();
             btnQuestions.Hide();
+            dtQuestions.Hide();
+            dtTeams.Hide();
             dtSeasonTeams.Show();
             selectedRound = null;
             dtSeasonTeams.DataSource = database.season_has_team.Where(s => s.season.id == selectedSeason.id && s.deleted == 0)
@@ -377,6 +393,7 @@ namespace Quizzy
             for (int i = 0; i < dtTeams.RowCount; i++)
             {
                 dtTeams.Rows[i].Cells[0].Value = i + 1;
+                dtTeams.Rows[i].Cells["TeamDeleteCln"].Value = Resources.remove;
             }
         }
 
@@ -447,12 +464,16 @@ namespace Quizzy
             }
         }
 
-        private const int YoutubeClnIndex = 3;
-        private const int DeleteQuestionClnIndex = 4;
+        private const int YoutubeClnIndex = 5;
+        private const int DeleteQuestionClnIndex = 6;
+        private const int UpClnIndex = 0;
+        private const int DownClnIndex = 2;
 
         private void dtQuestions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == YoutubeClnIndex && e.RowIndex >= 0)
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == YoutubeClnIndex)
             {
                 var roundQuestion = dtQuestions.Rows[e.RowIndex].DataBoundItem as round_question;
                 if (!String.IsNullOrEmpty(roundQuestion.question.youtube_link))
@@ -460,7 +481,7 @@ namespace Quizzy
                     var form = new YoutubeForm(roundQuestion.question.youtube_link);
                     form.ShowDialog(this);
                 }
-            }else if (e.ColumnIndex == DeleteQuestionClnIndex && e.RowIndex >= 0)
+            }else if (e.ColumnIndex == DeleteQuestionClnIndex)
             {
                 var dialog=new AreYouSurePopup("Da li ste sigurni da želite da obrišete pitanje?");
                 dialog.ShowDialog(this);
@@ -468,10 +489,40 @@ namespace Quizzy
                 {
                     var roundQuestion = dtQuestions.Rows[e.RowIndex].DataBoundItem as round_question;
                     roundQuestion.deleted = 1;
+                    foreach (DataGridViewRow row in dtQuestions.Rows)
+                    {
+                        var question=row.DataBoundItem as round_question;
+                        if (question.question_number > roundQuestion.question_number)
+                        {
+                            question.question_number--;
+                        }
+                    }
                     database.SaveChanges();
                     btnQuestions_Click(null, null);
                 }
                
+            }else if (e.ColumnIndex == UpClnIndex && e.RowIndex>0)
+            {
+                var roundQuestion = dtQuestions.Rows[e.RowIndex].DataBoundItem as round_question;
+                var nextQuestion = dtQuestions.Rows[e.RowIndex - 1].DataBoundItem as round_question;
+                var oldNumber = roundQuestion.question_number;
+                roundQuestion.question_number = nextQuestion.question_number;
+                nextQuestion.question_number = oldNumber;
+                database.SaveChanges();
+                btnQuestions_Click(null, null);
+                                dtQuestions.Rows[e.RowIndex - 1].Selected = true;
+
+            }
+            else if (e.ColumnIndex == DownClnIndex && e.RowIndex+1<dtQuestions.RowCount)
+            {
+                var roundQuestion = dtQuestions.Rows[e.RowIndex].DataBoundItem as round_question;
+                var nextQuestion = dtQuestions.Rows[e.RowIndex+1].DataBoundItem as round_question;
+                var oldNumber=roundQuestion.question_number;
+                roundQuestion.question_number = nextQuestion.question_number;
+                nextQuestion.question_number = oldNumber;
+                database.SaveChanges();
+                btnQuestions_Click(null,null);
+                dtQuestions.Rows[e.RowIndex + 1].Selected = true;
             }
         }
 
@@ -511,6 +562,7 @@ namespace Quizzy
         {
             var form = new QuestionsForm(database, selectedRound);
             form.ShowDialog(this);
+            btnQuestions_Click(null,null);
         }
 
         private void btnAddQuestion_MouseLeave(object sender, EventArgs e)
@@ -542,7 +594,6 @@ namespace Quizzy
             if (newValue < 0)
             {
                 dtTeams.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldValue;
-
             }
             else
             {
@@ -553,22 +604,113 @@ namespace Quizzy
 
         #endregion
 
-        private void dtTeams_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        
+        
+        private const int DeleteTeamClnIndex = 3;
+
+        private void dtTeams_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DeleteTeamClnIndex && e.RowIndex >= 0)
+            {
+                var dialog = new AreYouSurePopup("Da li ste sigurni da želite da obrišete tim?");
+                dialog.ShowDialog(this);
+                if (dialog.Success)
+                {
+                    var teamToDelete = dtTeams.Rows[e.RowIndex].DataBoundItem as team_round;
+                    teamToDelete.deleted = 1;
+                    database.SaveChanges();
+                    if (database.team_round.FirstOrDefault(t => t.team_id == teamToDelete.team_id && t.deleted == 0) ==
+                        null)
+                    {
+                        database.season_has_team.First(t => t.team_id == teamToDelete.team_id).deleted = 1;
+                        database.SaveChanges();
+                    };
+                    btnTeams_Click(null, null);
+                }
+
+            }
+        }
+
+        private void dtTeams_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DeleteTeamClnIndex && e.RowIndex >= 0)
+            {
+                dtTeams.Rows[e.RowIndex].Cells["TeamDeleteCln"].Value = Resources.remove_fade;
+            }
+        }
+
+        private void dtTeams_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DeleteTeamClnIndex && e.RowIndex >= 0)
+            {
+                dtTeams.Rows[e.RowIndex].Cells["TeamDeleteCln"].Value = Resources.remove;
+            }
+        }
+
+        private void btnQuiz_Click(object sender, EventArgs e)
+        {
+            btnQuiz.BackColor = BackgroundColor;
+            btnQuestion.BackColor = PrimaryColor;
+            //loadMainForm();
+            questionsView.SendToBack();
+            questionsView.Hide();
+        }
+
+        private void btnQuestion_Click(object sender, EventArgs e)
+        {
+            btnQuiz.BackColor = PrimaryColor;
+            btnQuestion.BackColor = BackgroundColor;
+            questionsView.Database = database;
+            questionsView.loadDB();
+            questionsView.BringToFront();
+            questionsView.Show();
+        }
+
+        private void seasonTreeView_DoubleClick(object sender, EventArgs e)
         {
 
         }
 
-        private void dtQuestions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void seasonTreeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-
+            e.Node.BeginEdit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void seasonTreeView_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
+            if (String.IsNullOrEmpty(e.Label))
+            {
+                e.CancelEdit = true;
+               // new ErrorPopup("Naziv mora da postoji!").ShowDialog(this);
+                return;
+            }
+            else
+            {
+                if (e.Node.Level == 0 &&
+                    seasonTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(t => t.Text == e.Label && t.Tag != e.Node.Tag) == null)
+                {
+                    var season = e.Node.Tag as season;
+                    season.name = e.Label;
 
+                }
+                else if (e.Node.Parent.Nodes.OfType<TreeNode>().FirstOrDefault(t => t.Text == e.Label && t.Tag!=e.Node.Tag) == null)
+                {
+                    var round = e.Node.Tag as round;
+                    round.name = e.Label;
+                }
+                else
+                {
+                    new ErrorPopup("Naziv mora biti jedinstven!").ShowDialog(this);
+                    e.CancelEdit = true;
+                    return;
+                }
+
+                database.SaveChanges();
+            }
         }
 
-        private void lblPlaces_Click(object sender, EventArgs e)
+        private void s(object sender, DataGridViewCellEventArgs e)
         {
 
         }

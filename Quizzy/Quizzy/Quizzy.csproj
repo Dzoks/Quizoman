@@ -52,6 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xaml" />
@@ -78,6 +79,12 @@
     <Compile Include="Model\team.cs" />
     <Compile Include="Model\team_round.cs" />
     <Compile Include="Utility.cs" />
+    <Compile Include="View\AddQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddQuestionForm.Designer.cs">
+      <DependentUpon>AddQuestionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AreYouSurePopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +111,12 @@
     <Compile Include="View\QuestionsForm.Designer.cs">
       <DependentUpon>QuestionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\QuestionsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\QuestionsView.Designer.cs">
+      <DependentUpon>QuestionsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TeamsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +139,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\AddQuestionForm.resx">
+      <DependentUpon>AddQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AreYouSurePopup.resx">
       <DependentUpon>AreYouSurePopup.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\QuestionsForm.resx">
       <DependentUpon>QuestionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QuestionsView.resx">
+      <DependentUpon>QuestionsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TeamsForm.resx">
       <DependentUpon>TeamsForm.cs</DependentUpon>

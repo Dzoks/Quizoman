@@ -21,6 +21,7 @@ namespace Quizzy.View
         private round round;
         private int YoutubeClnIndex=2;
 
+
         public QuestionsForm(QuizzyDB database,round round)
         {
             this.round = round;
@@ -89,8 +90,16 @@ namespace Quizzy.View
                 allQuestions.RemoveAll(q => String.IsNullOrEmpty(q.youtube_link));
             }
 
-            
+            allQuestions.Reverse();
             dtQuestions.DataSource = allQuestions;
+            dtQuestions.ClearSelection();
+            enableButton();
+
+        }
+
+        private void enableButton()
+        {
+            btnAddQuestion.Enabled = dtQuestions.SelectedRows.Count == 1;
         }
 
         private void checkUntold_CheckedChanged(object sender, EventArgs e)
@@ -153,6 +162,33 @@ namespace Quizzy.View
                     dtQuestions.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Resources.play;
                 }
             }
+        }
+
+        private void btnNewQuestion_Click(object sender, EventArgs e)
+        {
+            var form=new AddQuestionForm(database);
+            form.ShowDialog(this);
+            loadTable();
+        }
+
+        private void btnAddQuestion_Click(object sender, EventArgs e)
+        {
+            var newQuestion=new round_question()
+            {
+                question = dtQuestions.SelectedRows[0].DataBoundItem as question,
+                round=round,
+                deleted = 0,
+                question_number = round.round_question.Where(r => r.deleted == 0).ToList().Count+1
+            };
+            round.round_question.Add(newQuestion);
+            database.SaveChanges();
+            Close();
+
+        }
+
+        private void dtQuestions_SelectionChanged(object sender, EventArgs e)
+        {
+            enableButton();
         }
     }
 }

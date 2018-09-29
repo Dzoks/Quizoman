@@ -37,5 +37,18 @@ namespace Quizzy.Model
         {
             return question_text;
         }
+
+        public bool CheckValidity()
+        {
+            return question_text?.Length > 0 && answer?.Length > 0 && ValidYoutubeLink();
+        }
+
+        private bool ValidYoutubeLink()
+        {
+            if (String.IsNullOrEmpty(youtube_link))
+                return true;
+            return Utility.IsYoutubeLinkValid(youtube_link);
+
+        }
     }
 }

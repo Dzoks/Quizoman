@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnQuestion = new System.Windows.Forms.Button();
             this.btnQuiz = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnMaximize = new System.Windows.Forms.Button();
@@ -46,13 +46,14 @@
             this.btnTeams = new System.Windows.Forms.Button();
             this.btnQuestions = new System.Windows.Forms.Button();
             this.lblPlaces = new System.Windows.Forms.Label();
-            this.btnAddTeam = new System.Windows.Forms.Button();
-            this.btnAddQuestion = new System.Windows.Forms.Button();
             this.dtTeams = new System.Windows.Forms.DataGridView();
+            this.TeamCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamDeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.dtQuestions = new System.Windows.Forms.DataGridView();
             this.dtSeasonTeams = new System.Windows.Forms.DataGridView();
-            this.TeamCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SeasonCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAddTeam = new System.Windows.Forms.Button();
+            this.btnAddQuestion = new System.Windows.Forms.Button();
             this.roundquestionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +69,10 @@
             this.deletedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seasonhasteamBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.questionsView = new Quizzy.View.QuestionsView();
+            this.UpCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.questionnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DownCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.questionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AnswerCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.YoutubeCln = new System.Windows.Forms.DataGridViewImageColumn();
@@ -90,7 +94,7 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
-            this.topPanel.Controls.Add(this.button1);
+            this.topPanel.Controls.Add(this.btnQuestion);
             this.topPanel.Controls.Add(this.btnQuiz);
             this.topPanel.Controls.Add(this.btnClose);
             this.topPanel.Controls.Add(this.btnMaximize);
@@ -104,34 +108,41 @@
             this.topPanel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDoubleClick);
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
             // 
-            // button1
+            // btnQuestion
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(659, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Pitanja";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
+            this.btnQuestion.FlatAppearance.BorderSize = 0;
+            this.btnQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.btnQuestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(62)))));
+            this.btnQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuestion.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuestion.ForeColor = System.Drawing.Color.White;
+            this.btnQuestion.Location = new System.Drawing.Point(634, 8);
+            this.btnQuestion.Name = "btnQuestion";
+            this.btnQuestion.Size = new System.Drawing.Size(112, 32);
+            this.btnQuestion.TabIndex = 4;
+            this.btnQuestion.Text = "Pitanja";
+            this.btnQuestion.UseVisualStyleBackColor = false;
+            this.btnQuestion.Click += new System.EventHandler(this.btnQuestion_Click);
             // 
             // btnQuiz
             // 
-            this.btnQuiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.btnQuiz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuiz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(63)))));
             this.btnQuiz.FlatAppearance.BorderSize = 0;
+            this.btnQuiz.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.btnQuiz.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(62)))));
             this.btnQuiz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuiz.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuiz.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuiz.ForeColor = System.Drawing.Color.White;
-            this.btnQuiz.Location = new System.Drawing.Point(568, 8);
+            this.btnQuiz.Location = new System.Drawing.Point(525, 8);
             this.btnQuiz.Name = "btnQuiz";
-            this.btnQuiz.Size = new System.Drawing.Size(96, 32);
+            this.btnQuiz.Size = new System.Drawing.Size(112, 32);
             this.btnQuiz.TabIndex = 4;
             this.btnQuiz.Text = "Kvizovi";
             this.btnQuiz.UseVisualStyleBackColor = false;
+            this.btnQuiz.Click += new System.EventHandler(this.btnQuiz_Click);
             // 
             // btnClose
             // 
@@ -201,25 +212,29 @@
             this.seasonTreeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
             this.seasonTreeView.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seasonTreeView.ForeColor = System.Drawing.Color.White;
+            this.seasonTreeView.LabelEdit = true;
             this.seasonTreeView.Location = new System.Drawing.Point(0, 41);
             this.seasonTreeView.Name = "seasonTreeView";
             this.seasonTreeView.Size = new System.Drawing.Size(240, 558);
             this.seasonTreeView.TabIndex = 1;
+            this.seasonTreeView.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.seasonTreeView_AfterLabelEdit);
             this.seasonTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.seasonTreeView_DrawNode);
             this.seasonTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.seasonTreeView_NodeMouseClick);
+            this.seasonTreeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.seasonTreeView_NodeMouseDoubleClick);
+            this.seasonTreeView.DoubleClick += new System.EventHandler(this.seasonTreeView_DoubleClick);
             // 
             // btnTeams
             // 
-            this.btnTeams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(76)))));
+            this.btnTeams.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnTeams.FlatAppearance.BorderSize = 0;
-            this.btnTeams.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
-            this.btnTeams.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.btnTeams.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnTeams.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
             this.btnTeams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTeams.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTeams.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTeams.ForeColor = System.Drawing.Color.White;
-            this.btnTeams.Location = new System.Drawing.Point(260, 50);
+            this.btnTeams.Location = new System.Drawing.Point(260, 47);
             this.btnTeams.Name = "btnTeams";
-            this.btnTeams.Size = new System.Drawing.Size(161, 28);
+            this.btnTeams.Size = new System.Drawing.Size(112, 31);
             this.btnTeams.TabIndex = 3;
             this.btnTeams.Text = "Timovi";
             this.btnTeams.UseVisualStyleBackColor = false;
@@ -227,16 +242,16 @@
             // 
             // btnQuestions
             // 
-            this.btnQuestions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(76)))));
+            this.btnQuestions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnQuestions.FlatAppearance.BorderSize = 0;
-            this.btnQuestions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
-            this.btnQuestions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
+            this.btnQuestions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnQuestions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(65)))));
             this.btnQuestions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuestions.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuestions.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuestions.ForeColor = System.Drawing.Color.White;
-            this.btnQuestions.Location = new System.Drawing.Point(413, 50);
+            this.btnQuestions.Location = new System.Drawing.Point(366, 47);
             this.btnQuestions.Name = "btnQuestions";
-            this.btnQuestions.Size = new System.Drawing.Size(161, 28);
+            this.btnQuestions.Size = new System.Drawing.Size(112, 31);
             this.btnQuestions.TabIndex = 3;
             this.btnQuestions.Text = "Pitanja";
             this.btnQuestions.UseVisualStyleBackColor = false;
@@ -247,17 +262,205 @@
             this.lblPlaces.AutoSize = true;
             this.lblPlaces.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaces.ForeColor = System.Drawing.Color.White;
-            this.lblPlaces.Location = new System.Drawing.Point(284, 50);
+            this.lblPlaces.Location = new System.Drawing.Point(265, 41);
             this.lblPlaces.Name = "lblPlaces";
             this.lblPlaces.Size = new System.Drawing.Size(150, 25);
             this.lblPlaces.TabIndex = 5;
             this.lblPlaces.Text = "Ukupni plasman";
-            this.lblPlaces.Click += new System.EventHandler(this.lblPlaces_Click);
+            // 
+            // dtTeams
+            // 
+            this.dtTeams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtTeams.AutoGenerateColumns = false;
+            this.dtTeams.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.dtTeams.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtTeams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtTeams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dtTeams.ColumnHeadersHeight = 38;
+            this.dtTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TeamCountCln,
+            this.teamDataGridViewTextBoxColumn1,
+            this.totalDataGridViewTextBoxColumn1,
+            this.TeamDeleteCln,
+            this.teamidDataGridViewTextBoxColumn1,
+            this.roundidDataGridViewTextBoxColumn,
+            this.deletedDataGridViewTextBoxColumn1,
+            this.roundDataGridViewTextBoxColumn});
+            this.dtTeams.DataSource = this.teamroundBindingSource;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtTeams.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dtTeams.EnableHeadersVisualStyles = false;
+            this.dtTeams.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(87)))));
+            this.dtTeams.Location = new System.Drawing.Point(260, 78);
+            this.dtTeams.MultiSelect = false;
+            this.dtTeams.Name = "dtTeams";
+            this.dtTeams.RowHeadersVisible = false;
+            this.dtTeams.RowTemplate.Height = 38;
+            this.dtTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtTeams.Size = new System.Drawing.Size(599, 506);
+            this.dtTeams.TabIndex = 2;
+            this.dtTeams.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtTeams_CellBeginEdit);
+            this.dtTeams.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTeams_CellClick);
+            this.dtTeams.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTeams_CellEndEdit);
+            this.dtTeams.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTeams_CellMouseEnter);
+            this.dtTeams.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTeams_CellMouseLeave);
+            this.dtTeams.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtTeams_DataBindingComplete);
+            // 
+            // TeamCountCln
+            // 
+            this.TeamCountCln.FillWeight = 60F;
+            this.TeamCountCln.HeaderText = "Mjesto";
+            this.TeamCountCln.MinimumWidth = 60;
+            this.TeamCountCln.Name = "TeamCountCln";
+            this.TeamCountCln.ReadOnly = true;
+            this.TeamCountCln.Width = 60;
+            // 
+            // TeamDeleteCln
+            // 
+            this.TeamDeleteCln.FillWeight = 38F;
+            this.TeamDeleteCln.HeaderText = "";
+            this.TeamDeleteCln.MinimumWidth = 38;
+            this.TeamDeleteCln.Name = "TeamDeleteCln";
+            this.TeamDeleteCln.Width = 38;
+            // 
+            // dtQuestions
+            // 
+            this.dtQuestions.AllowDrop = true;
+            this.dtQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtQuestions.AutoGenerateColumns = false;
+            this.dtQuestions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.dtQuestions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtQuestions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtQuestions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dtQuestions.ColumnHeadersHeight = 38;
+            this.dtQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtQuestions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UpCln,
+            this.questionnumberDataGridViewTextBoxColumn,
+            this.DownCln,
+            this.questionDataGridViewTextBoxColumn,
+            this.AnswerCln,
+            this.YoutubeCln,
+            this.DeleteCln,
+            this.idDataGridViewTextBoxColumn,
+            this.questionidDataGridViewTextBoxColumn,
+            this.roundidDataGridViewTextBoxColumn1,
+            this.deletedDataGridViewTextBoxColumn2,
+            this.roundDataGridViewTextBoxColumn1});
+            this.dtQuestions.DataSource = this.roundquestionBindingSource;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtQuestions.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dtQuestions.EnableHeadersVisualStyles = false;
+            this.dtQuestions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(87)))));
+            this.dtQuestions.Location = new System.Drawing.Point(260, 78);
+            this.dtQuestions.MultiSelect = false;
+            this.dtQuestions.Name = "dtQuestions";
+            this.dtQuestions.ReadOnly = true;
+            this.dtQuestions.RowHeadersVisible = false;
+            this.dtQuestions.RowTemplate.Height = 38;
+            this.dtQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtQuestions.Size = new System.Drawing.Size(599, 506);
+            this.dtQuestions.TabIndex = 2;
+            this.dtQuestions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellClick);
+            this.dtQuestions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.s);
+            this.dtQuestions.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellMouseEnter);
+            this.dtQuestions.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellMouseLeave);
+            this.dtQuestions.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtQuestions_DataBindingComplete);
+            // 
+            // dtSeasonTeams
+            // 
+            this.dtSeasonTeams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtSeasonTeams.AutoGenerateColumns = false;
+            this.dtSeasonTeams.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.dtSeasonTeams.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtSeasonTeams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtSeasonTeams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dtSeasonTeams.ColumnHeadersHeight = 38;
+            this.dtSeasonTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtSeasonTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SeasonCountCln,
+            this.teamDataGridViewTextBoxColumn,
+            this.totalDataGridViewTextBoxColumn,
+            this.seasonidDataGridViewTextBoxColumn,
+            this.teamidDataGridViewTextBoxColumn,
+            this.deletedDataGridViewTextBoxColumn,
+            this.seasonDataGridViewTextBoxColumn});
+            this.dtSeasonTeams.DataSource = this.seasonhasteamBindingSource;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtSeasonTeams.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dtSeasonTeams.EnableHeadersVisualStyles = false;
+            this.dtSeasonTeams.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(87)))));
+            this.dtSeasonTeams.Location = new System.Drawing.Point(260, 78);
+            this.dtSeasonTeams.MultiSelect = false;
+            this.dtSeasonTeams.Name = "dtSeasonTeams";
+            this.dtSeasonTeams.ReadOnly = true;
+            this.dtSeasonTeams.RowHeadersVisible = false;
+            this.dtSeasonTeams.RowTemplate.Height = 38;
+            this.dtSeasonTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtSeasonTeams.Size = new System.Drawing.Size(599, 506);
+            this.dtSeasonTeams.TabIndex = 2;
+            this.dtSeasonTeams.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtSeasonTeams_DataBindingComplete);
+            // 
+            // SeasonCountCln
+            // 
+            this.SeasonCountCln.FillWeight = 60F;
+            this.SeasonCountCln.HeaderText = "Mjesto";
+            this.SeasonCountCln.MinimumWidth = 60;
+            this.SeasonCountCln.Name = "SeasonCountCln";
+            this.SeasonCountCln.ReadOnly = true;
+            this.SeasonCountCln.Width = 60;
             // 
             // btnAddTeam
             // 
             this.btnAddTeam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddTeam.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddTeam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnAddTeam.FlatAppearance.BorderSize = 0;
             this.btnAddTeam.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAddTeam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -277,6 +480,7 @@
             // 
             this.btnAddQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddQuestion.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddQuestion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnAddQuestion.FlatAppearance.BorderSize = 0;
             this.btnAddQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAddQuestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -291,175 +495,6 @@
             this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
             this.btnAddQuestion.MouseEnter += new System.EventHandler(this.btnAddQuestion_MouseEnter);
             this.btnAddQuestion.MouseLeave += new System.EventHandler(this.btnAddQuestion_MouseLeave);
-            // 
-            // dtTeams
-            // 
-            this.dtTeams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtTeams.AutoGenerateColumns = false;
-            this.dtTeams.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.dtTeams.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtTeams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtTeams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TeamCountCln,
-            this.teamDataGridViewTextBoxColumn1,
-            this.totalDataGridViewTextBoxColumn1,
-            this.teamidDataGridViewTextBoxColumn1,
-            this.roundidDataGridViewTextBoxColumn,
-            this.deletedDataGridViewTextBoxColumn1,
-            this.roundDataGridViewTextBoxColumn});
-            this.dtTeams.DataSource = this.teamroundBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtTeams.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtTeams.EnableHeadersVisualStyles = false;
-            this.dtTeams.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(87)))));
-            this.dtTeams.Location = new System.Drawing.Point(260, 78);
-            this.dtTeams.MultiSelect = false;
-            this.dtTeams.Name = "dtTeams";
-            this.dtTeams.RowHeadersVisible = false;
-            this.dtTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtTeams.Size = new System.Drawing.Size(599, 506);
-            this.dtTeams.TabIndex = 2;
-            this.dtTeams.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dtTeams_CellBeginEdit);
-            this.dtTeams.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTeams_CellContentClick);
-            this.dtTeams.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTeams_CellEndEdit);
-            this.dtTeams.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtTeams_DataBindingComplete);
-            // 
-            // dtQuestions
-            // 
-            this.dtQuestions.AllowDrop = true;
-            this.dtQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtQuestions.AutoGenerateColumns = false;
-            this.dtQuestions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.dtQuestions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtQuestions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtQuestions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtQuestions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtQuestions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.questionnumberDataGridViewTextBoxColumn,
-            this.questionDataGridViewTextBoxColumn,
-            this.AnswerCln,
-            this.YoutubeCln,
-            this.DeleteCln,
-            this.idDataGridViewTextBoxColumn,
-            this.questionidDataGridViewTextBoxColumn,
-            this.roundidDataGridViewTextBoxColumn1,
-            this.deletedDataGridViewTextBoxColumn2,
-            this.roundDataGridViewTextBoxColumn1});
-            this.dtQuestions.DataSource = this.roundquestionBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtQuestions.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dtQuestions.EnableHeadersVisualStyles = false;
-            this.dtQuestions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(87)))));
-            this.dtQuestions.Location = new System.Drawing.Point(260, 78);
-            this.dtQuestions.MultiSelect = false;
-            this.dtQuestions.Name = "dtQuestions";
-            this.dtQuestions.ReadOnly = true;
-            this.dtQuestions.RowHeadersVisible = false;
-            this.dtQuestions.RowTemplate.Height = 32;
-            this.dtQuestions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtQuestions.Size = new System.Drawing.Size(599, 506);
-            this.dtQuestions.TabIndex = 2;
-            this.dtQuestions.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellClick);
-            this.dtQuestions.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellMouseEnter);
-            this.dtQuestions.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtQuestions_CellMouseLeave);
-            this.dtQuestions.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtQuestions_DataBindingComplete);
-            // 
-            // dtSeasonTeams
-            // 
-            this.dtSeasonTeams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtSeasonTeams.AutoGenerateColumns = false;
-            this.dtSeasonTeams.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.dtSeasonTeams.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtSeasonTeams.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtSeasonTeams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtSeasonTeams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtSeasonTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SeasonCountCln,
-            this.teamDataGridViewTextBoxColumn,
-            this.totalDataGridViewTextBoxColumn,
-            this.seasonidDataGridViewTextBoxColumn,
-            this.teamidDataGridViewTextBoxColumn,
-            this.deletedDataGridViewTextBoxColumn,
-            this.seasonDataGridViewTextBoxColumn});
-            this.dtSeasonTeams.DataSource = this.seasonhasteamBindingSource;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtSeasonTeams.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dtSeasonTeams.EnableHeadersVisualStyles = false;
-            this.dtSeasonTeams.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(78)))), ((int)(((byte)(87)))));
-            this.dtSeasonTeams.Location = new System.Drawing.Point(260, 78);
-            this.dtSeasonTeams.MultiSelect = false;
-            this.dtSeasonTeams.Name = "dtSeasonTeams";
-            this.dtSeasonTeams.ReadOnly = true;
-            this.dtSeasonTeams.RowHeadersVisible = false;
-            this.dtSeasonTeams.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtSeasonTeams.Size = new System.Drawing.Size(599, 506);
-            this.dtSeasonTeams.TabIndex = 2;
-            this.dtSeasonTeams.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtSeasonTeams_DataBindingComplete);
-            // 
-            // TeamCountCln
-            // 
-            this.TeamCountCln.FillWeight = 60F;
-            this.TeamCountCln.HeaderText = "Mjesto";
-            this.TeamCountCln.MinimumWidth = 60;
-            this.TeamCountCln.Name = "TeamCountCln";
-            this.TeamCountCln.ReadOnly = true;
-            this.TeamCountCln.Width = 60;
-            // 
-            // SeasonCountCln
-            // 
-            this.SeasonCountCln.FillWeight = 60F;
-            this.SeasonCountCln.HeaderText = "Mjesto";
-            this.SeasonCountCln.MinimumWidth = 60;
-            this.SeasonCountCln.Name = "SeasonCountCln";
-            this.SeasonCountCln.ReadOnly = true;
-            this.SeasonCountCln.Width = 60;
             // 
             // roundquestionBindingSource
             // 
@@ -572,6 +607,28 @@
             // 
             this.seasonhasteamBindingSource.DataSource = typeof(Quizzy.Model.season_has_team);
             // 
+            // questionsView
+            // 
+            this.questionsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.questionsView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.questionsView.Database = null;
+            this.questionsView.Location = new System.Drawing.Point(0, 41);
+            this.questionsView.Name = "questionsView";
+            this.questionsView.Size = new System.Drawing.Size(882, 558);
+            this.questionsView.TabIndex = 6;
+            // 
+            // UpCln
+            // 
+            this.UpCln.FillWeight = 38F;
+            this.UpCln.HeaderText = "";
+            this.UpCln.Image = global::Quizzy.Properties.Resources.plus;
+            this.UpCln.MinimumWidth = 38;
+            this.UpCln.Name = "UpCln";
+            this.UpCln.ReadOnly = true;
+            this.UpCln.Width = 38;
+            // 
             // questionnumberDataGridViewTextBoxColumn
             // 
             this.questionnumberDataGridViewTextBoxColumn.DataPropertyName = "question_number";
@@ -581,6 +638,16 @@
             this.questionnumberDataGridViewTextBoxColumn.Name = "questionnumberDataGridViewTextBoxColumn";
             this.questionnumberDataGridViewTextBoxColumn.ReadOnly = true;
             this.questionnumberDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // DownCln
+            // 
+            this.DownCln.FillWeight = 38F;
+            this.DownCln.HeaderText = "";
+            this.DownCln.Image = global::Quizzy.Properties.Resources.minus;
+            this.DownCln.MinimumWidth = 38;
+            this.DownCln.Name = "DownCln";
+            this.DownCln.ReadOnly = true;
+            this.DownCln.Width = 38;
             // 
             // questionDataGridViewTextBoxColumn
             // 
@@ -599,25 +666,25 @@
             // 
             // YoutubeCln
             // 
-            this.YoutubeCln.FillWeight = 34F;
+            this.YoutubeCln.FillWeight = 38F;
             this.YoutubeCln.HeaderText = "YT";
-            this.YoutubeCln.MinimumWidth = 36;
+            this.YoutubeCln.MinimumWidth = 38;
             this.YoutubeCln.Name = "YoutubeCln";
             this.YoutubeCln.ReadOnly = true;
             this.YoutubeCln.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.YoutubeCln.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.YoutubeCln.Width = 36;
+            this.YoutubeCln.Width = 38;
             // 
             // DeleteCln
             // 
-            this.DeleteCln.FillWeight = 32F;
+            this.DeleteCln.FillWeight = 38F;
             this.DeleteCln.HeaderText = "";
-            this.DeleteCln.MinimumWidth = 36;
+            this.DeleteCln.MinimumWidth = 38;
             this.DeleteCln.Name = "DeleteCln";
             this.DeleteCln.ReadOnly = true;
             this.DeleteCln.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DeleteCln.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.DeleteCln.Width = 36;
+            this.DeleteCln.Width = 38;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -675,6 +742,7 @@
             this.Controls.Add(this.dtSeasonTeams);
             this.Controls.Add(this.seasonTreeView);
             this.Controls.Add(this.topPanel);
+            this.Controls.Add(this.questionsView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(1);
@@ -710,17 +778,10 @@
         private System.Windows.Forms.Button btnAddTeam;
         private System.Windows.Forms.Label lblPlaces;
         private System.Windows.Forms.Button btnQuiz;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnQuestion;
         private System.Windows.Forms.DataGridView dtTeams;
         private System.Windows.Forms.DataGridView dtQuestions;
         private System.Windows.Forms.DataGridView dtSeasonTeams;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TeamCountCln;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teamDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teamidDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roundidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deletedDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roundDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SeasonCountCln;
         private System.Windows.Forms.DataGridViewTextBoxColumn teamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
@@ -728,7 +789,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn teamidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn deletedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn seasonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeamCountCln;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teamDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn TeamDeleteCln;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teamidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roundidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deletedDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roundDataGridViewTextBoxColumn;
+        private View.QuestionsView questionsViewcs1;
+        private View.QuestionsView questionsView;
+        private System.Windows.Forms.DataGridViewImageColumn UpCln;
         private System.Windows.Forms.DataGridViewTextBoxColumn questionnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn DownCln;
         private System.Windows.Forms.DataGridViewTextBoxColumn questionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AnswerCln;
         private System.Windows.Forms.DataGridViewImageColumn YoutubeCln;
