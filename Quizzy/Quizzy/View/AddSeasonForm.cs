@@ -78,16 +78,19 @@ namespace Quizzy.View
             }
             else
             {
-                database.seasons.Add(new season()
+                Season = new season()
                 {
                     name = fldSeason.Text,
                     deleted = 0
-                });
+                };
+                database.seasons.Add(Season);
                 database.SaveChanges();
                 Success = true;
                 Close();
             }
            
         }
+
+        public season Season { get; set; }
     }
 }

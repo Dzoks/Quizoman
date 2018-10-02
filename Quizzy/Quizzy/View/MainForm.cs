@@ -428,6 +428,8 @@ namespace Quizzy
                     }
 
                     row.Cells["DeleteCln"].Value = Resources.remove;
+                    row.Cells["UpCln"].Value = Resources.up;
+                    row.Cells["DownCln"].Value = Resources.down;
                 }
                 
             }
@@ -466,9 +468,9 @@ namespace Quizzy
         }
 
         private const int YoutubeClnIndex = 5;
-        private const int DeleteQuestionClnIndex = 6;
+        private const int DeleteQuestionClnIndex = 7;
         private const int UpClnIndex = 0;
-        private const int DownClnIndex = 2;
+        private const int DownClnIndex = 1;
 
         private void dtQuestions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -591,6 +593,7 @@ namespace Quizzy
 
         private void dtTeams_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            
            var newValue = dtTeams.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as double?;
             if (newValue < 0)
             {
@@ -598,8 +601,17 @@ namespace Quizzy
             }
             else
             {
+                var teamRound=dtTeams.Rows[e.RowIndex].DataBoundItem as team_round;
+                var teamSeason=teamRound.round.season.season_has_team.First(s => s.team_id == teamRound.team_id);
+                teamSeason.total -= (double) oldValue;
+                teamSeason.total += (double)teamRound.total;
                 database.SaveChanges();
-                btnTeams_Click(null,null);
+                dtTeams.BeginInvoke(new MethodInvoker(delegate()
+                {
+                    dtTeams.DataSource = database.team_round.Where(r => r.deleted == 0 && r.round_id == selectedRound.id)
+                        .OrderByDescending(r => r.total).ToList();
+
+                }));
             }
         }
 
@@ -620,13 +632,19 @@ namespace Quizzy
                 {
                     var teamToDelete = dtTeams.Rows[e.RowIndex].DataBoundItem as team_round;
                     teamToDelete.deleted = 1;
+                    teamToDelete.round.season.season_has_team.First(t => t.team_id == teamToDelete.team_id).total -=
+                        (double)teamToDelete.total;
                     database.SaveChanges();
                     if (database.team_round.FirstOrDefault(t => t.team_id == teamToDelete.team_id && t.deleted == 0) ==
                         null)
                     {
                         database.season_has_team.First(t => t.team_id == teamToDelete.team_id).deleted = 1;
                         database.SaveChanges();
-                    };
+                    }
+                    else
+                    {
+                        
+                    }
                     btnTeams_Click(null, null);
                 }
 
@@ -727,7 +745,16 @@ namespace Quizzy
             var form=new AddSeasonForm(database);
             form.ShowDialog(this);
             if (form.Success)
-            loadMainForm();
+            {
+                var treeNode=new TreeNode()
+                {
+                    Tag = form.Season,
+                    Name = form.Season.name,
+                    Text=form.Season.name,
+                   
+                };
+                seasonTreeView.Nodes.Add(treeNode);
+            }
         }
 
         private void dodajteKvizToolStripMenuItem_Click(object sender, EventArgs e)
@@ -735,7 +762,21 @@ namespace Quizzy
             var form = new AddRoundForm(database);
             form.ShowDialog(this);
             if (form.Success)
-                loadMainForm();
+            {
+                foreach (TreeNode node in seasonTreeView.Nodes)
+                {
+                    if (node.Text == form.Round.season.name)
+                    {
+                        node.Nodes.Add(new TreeNode()
+                        {
+                            Text = form.Round.name,
+                            Name = form.Round.name,
+                            Tag = form.Round
+                        });
+                    }
+                }
+             
+            }
         }
 
         private void btnAddTreeView_MouseEnter(object sender, EventArgs e)
@@ -746,6 +787,40 @@ namespace Quizzy
         private void btnAddTreeView_MouseLeave(object sender, EventArgs e)
         {
             btnAddTreeView.Image = Resources.add;
+
+        }
+
+        private void dtQuestions_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            oldValue = dtQuestions.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+        }
+
+        private void dtQuestions_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            var newValue = dtQuestions.Rows[e.RowIndex].Cells[e.ColumnIndex].Value as double?;
+            if (newValue < 0)
+            {
+                dtQuestions.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldValue;
+            }
+            else
+            {
+                var question=dtQuestions.Rows[e.RowIndex].DataBoundItem as round_question;
+                database.SaveChanges();
+            }
+
+        }
+
+        private void dtQuestions_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            
+            dtQuestions.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldValue;
+        }
+
+        private void dtTeams_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            dtTeams.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldValue;
+            
 
         }
     }

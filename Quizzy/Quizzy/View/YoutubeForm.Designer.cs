@@ -96,7 +96,8 @@
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "YoutubeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "YoutubeForm";
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();

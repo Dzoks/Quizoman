@@ -17,6 +17,8 @@ namespace Quizzy.Model
 
         public int question_id { get; set; }
 
+        public double points { get; set; }
+
         public sbyte deleted { get; set; }
 
         public virtual question question { get; set; }

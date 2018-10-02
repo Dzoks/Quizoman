@@ -38,6 +38,8 @@ namespace Quizzy.View
 
         private void dtQuestions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
             var questionObject = dtQuestions.Rows[e.RowIndex]?.DataBoundItem as question;
 
             if (e.ColumnIndex == DeleteColumnNumber)

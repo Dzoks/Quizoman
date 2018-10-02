@@ -32,6 +32,7 @@
             this.btnNo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.lblPlaces = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
@@ -39,9 +40,10 @@
             // btnYes
             // 
             this.btnYes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnYes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
             this.btnYes.FlatAppearance.BorderSize = 0;
             this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnYes.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYes.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnYes.ForeColor = System.Drawing.Color.White;
             this.btnYes.Location = new System.Drawing.Point(70, 113);
             this.btnYes.Name = "btnYes";
@@ -54,9 +56,10 @@
             // btnNo
             // 
             this.btnNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnNo.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnNo.FlatAppearance.BorderSize = 0;
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnNo.ForeColor = System.Drawing.Color.White;
             this.btnNo.Location = new System.Drawing.Point(212, 113);
             this.btnNo.Name = "btnNo";
@@ -81,12 +84,26 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.topPanel.Controls.Add(this.lblPlaces);
             this.topPanel.Controls.Add(this.btnClose);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(376, 40);
             this.topPanel.TabIndex = 9;
+            this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
+            // 
+            // lblPlaces
+            // 
+            this.lblPlaces.AutoSize = true;
+            this.lblPlaces.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaces.ForeColor = System.Drawing.Color.White;
+            this.lblPlaces.Location = new System.Drawing.Point(11, 7);
+            this.lblPlaces.Name = "lblPlaces";
+            this.lblPlaces.Size = new System.Drawing.Size(110, 25);
+            this.lblPlaces.TabIndex = 10;
+            this.lblPlaces.Text = "Upozorenje";
+            this.lblPlaces.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
             // 
             // btnClose
             // 
@@ -106,9 +123,11 @@
             // 
             // AreYouSurePopup
             // 
+            this.AcceptButton = this.btnYes;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.CancelButton = this.btnNo;
             this.ClientSize = new System.Drawing.Size(376, 159);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.label1);
@@ -116,9 +135,11 @@
             this.Controls.Add(this.btnYes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AreYouSurePopup";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AreYouSurePopup";
             this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +152,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblPlaces;
     }
 }

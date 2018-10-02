@@ -9,18 +9,15 @@ namespace Quizzy.Model
     [Table("quizoman_db.team_round")]
     public partial class team_round
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id { get; set; }
+
         public int team_id { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int round_id { get; set; }
 
-        public double? total { get; set; }
-
+        public double total { get; set; }
+        
         public sbyte deleted { get; set; }
 
         public virtual round round { get; set; }

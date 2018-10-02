@@ -30,10 +30,10 @@
         {
             this.fldSeason = new System.Windows.Forms.TextBox();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,14 +61,42 @@
             this.topPanel.TabIndex = 2;
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::Quizzy.Properties.Resources.close;
+            this.btnClose.Location = new System.Drawing.Point(351, 4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(36, 36);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.TabStop = false;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(12, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 25);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Dodavanje tima";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
             this.label1.Location = new System.Drawing.Point(12, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 25);
+            this.label1.Size = new System.Drawing.Size(45, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Tim";
             // 
@@ -88,38 +116,13 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAddQuestion_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(12, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 25);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Dodavanje tima";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::Quizzy.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(351, 4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(36, 36);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.TabStop = false;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // TeamsForm
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(388, 166);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label1);
@@ -127,7 +130,8 @@
             this.Controls.Add(this.fldSeason);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TeamsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "TeamsForm";
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();

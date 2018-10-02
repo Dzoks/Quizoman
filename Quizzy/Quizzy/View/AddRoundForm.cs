@@ -1,5 +1,6 @@
 ﻿using Quizzy.Model;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -17,6 +18,8 @@ namespace Quizzy.View
             InitializeComponent();
             comboSeason.Items.AddRange(database.seasons.Where(q=>q.deleted==0).ToArray());
             enableButton();
+            comboSeason.FlatStyle = FlatStyle.Flat;
+            comboSeason.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         public bool Success { get; set; }
@@ -81,15 +84,19 @@ namespace Quizzy.View
             }
             else
             {
-                season.rounds.Add(new round()
+                Round = new round()
                 {
                     name = fldRound.Text,
                     deleted = 0,
-                });
+                    season = season,
+                };
+                season.rounds.Add(Round);
                 database.SaveChanges();
                 Success = true;
                 Close();
             }
         }
+        
+        public round Round { get; set; }
     }
 }

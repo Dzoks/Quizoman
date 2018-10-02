@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.topPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.fldAnswer = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,23 +48,36 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(47)))));
+            this.topPanel.Controls.Add(this.label6);
             this.topPanel.Controls.Add(this.btnClose);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(610, 40);
+            this.topPanel.Size = new System.Drawing.Size(589, 40);
             this.topPanel.TabIndex = 2;
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Location = new System.Drawing.Point(6, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(168, 25);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Dodavanje pitanja";
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = global::Quizzy.Properties.Resources.close;
-            this.btnClose.Location = new System.Drawing.Point(573, 4);
+            this.btnClose.Location = new System.Drawing.Point(552, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(36, 36);
             this.btnClose.TabIndex = 3;
@@ -75,34 +89,33 @@
             // 
             this.fldAnswer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.fldAnswer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.fldAnswer.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fldAnswer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fldAnswer.ForeColor = System.Drawing.Color.White;
-            this.fldAnswer.Location = new System.Drawing.Point(207, 184);
-            this.fldAnswer.Multiline = true;
+            this.fldAnswer.Location = new System.Drawing.Point(180, 186);
             this.fldAnswer.Name = "fldAnswer";
-            this.fldAnswer.Size = new System.Drawing.Size(382, 25);
-            this.fldAnswer.TabIndex = 7;
+            this.fldAnswer.Size = new System.Drawing.Size(382, 22);
+            this.fldAnswer.TabIndex = 1;
             this.fldAnswer.TextChanged += new System.EventHandler(this.fldAnswer_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
-            this.label3.Location = new System.Drawing.Point(6, 185);
+            this.label3.Location = new System.Drawing.Point(13, 186);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 25);
+            this.label3.Size = new System.Drawing.Size(92, 25);
             this.label3.TabIndex = 10;
             this.label3.Text = "Odgovor";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
             this.label2.Location = new System.Drawing.Point(12, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 25);
+            this.label2.Size = new System.Drawing.Size(73, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Pitanje";
             // 
@@ -110,26 +123,27 @@
             // 
             this.fldQuestion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.fldQuestion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.fldQuestion.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fldQuestion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fldQuestion.ForeColor = System.Drawing.Color.White;
-            this.fldQuestion.Location = new System.Drawing.Point(207, 77);
+            this.fldQuestion.Location = new System.Drawing.Point(180, 77);
             this.fldQuestion.Multiline = true;
             this.fldQuestion.Name = "fldQuestion";
             this.fldQuestion.Size = new System.Drawing.Size(382, 70);
-            this.fldQuestion.TabIndex = 8;
+            this.fldQuestion.TabIndex = 0;
             this.fldQuestion.TextChanged += new System.EventHandler(this.fldQuestion_TextChanged);
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
-            this.btnAdd.Location = new System.Drawing.Point(439, 306);
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(410, 306);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(151, 41);
-            this.btnAdd.TabIndex = 13;
+            this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Dodajte";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -137,33 +151,33 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(174)))), ((int)(((byte)(178)))));
             this.label4.Location = new System.Drawing.Point(12, 261);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 25);
+            this.label4.Size = new System.Drawing.Size(125, 25);
             this.label4.TabIndex = 12;
             this.label4.Text = "Youtube link";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(87, 79);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(18, 23);
+            this.label5.Size = new System.Drawing.Size(21, 25);
             this.label5.TabIndex = 14;
             this.label5.Text = "*";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(111, 186);
+            this.label1.Location = new System.Drawing.Point(102, 188);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 23);
+            this.label1.Size = new System.Drawing.Size(21, 25);
             this.label1.TabIndex = 15;
             this.label1.Text = "*";
             // 
@@ -171,30 +185,32 @@
             // 
             this.errorPanel.BackColor = System.Drawing.Color.Transparent;
             this.errorPanel.Controls.Add(this.fldYoutube);
-            this.errorPanel.Location = new System.Drawing.Point(206, 260);
+            this.errorPanel.Location = new System.Drawing.Point(180, 261);
             this.errorPanel.Name = "errorPanel";
-            this.errorPanel.Size = new System.Drawing.Size(382, 27);
-            this.errorPanel.TabIndex = 16;
+            this.errorPanel.Size = new System.Drawing.Size(382, 24);
+            this.errorPanel.TabIndex = 2;
+            this.errorPanel.TabStop = true;
             // 
             // fldYoutube
             // 
             this.fldYoutube.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(71)))));
             this.fldYoutube.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.fldYoutube.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fldYoutube.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fldYoutube.ForeColor = System.Drawing.Color.White;
             this.fldYoutube.Location = new System.Drawing.Point(1, 1);
-            this.fldYoutube.Multiline = true;
             this.fldYoutube.Name = "fldYoutube";
-            this.fldYoutube.Size = new System.Drawing.Size(380, 25);
-            this.fldYoutube.TabIndex = 4;
+            this.fldYoutube.Size = new System.Drawing.Size(380, 22);
+            this.fldYoutube.TabIndex = 2;
             this.fldYoutube.TextChanged += new System.EventHandler(this.fldYoutube_TextChanged);
             // 
             // AddQuestionForm
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
-            this.ClientSize = new System.Drawing.Size(610, 359);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(589, 359);
             this.Controls.Add(this.errorPanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
@@ -207,10 +223,12 @@
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddQuestionForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddQuestionForm";
             this.Load += new System.EventHandler(this.AddQuestionForm_Load);
             this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.errorPanel.ResumeLayout(false);
             this.errorPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -232,5 +250,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel errorPanel;
         private System.Windows.Forms.TextBox fldYoutube;
+        private System.Windows.Forms.Label label6;
     }
 }

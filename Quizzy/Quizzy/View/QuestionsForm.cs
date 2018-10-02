@@ -99,7 +99,7 @@ namespace Quizzy.View
 
         private void enableButton()
         {
-            btnAddQuestion.Enabled = dtQuestions.SelectedRows.Count == 1;
+            btnAddQuestion.Enabled = dtQuestions.SelectedRows.Count == 1 && Double.TryParse(fldPoints.Text,out var value) && value>0;
         }
 
         private void checkUntold_CheckedChanged(object sender, EventArgs e)
@@ -177,9 +177,11 @@ namespace Quizzy.View
             {
                 question = dtQuestions.SelectedRows[0].DataBoundItem as question,
                 round=round,
+                points = Double.Parse(fldPoints.Text),
                 deleted = 0,
                 question_number = round.round_question.Where(r => r.deleted == 0).ToList().Count+1
             };
+            
             round.round_question.Add(newQuestion);
             database.SaveChanges();
             Close();
@@ -187,6 +189,12 @@ namespace Quizzy.View
         }
 
         private void dtQuestions_SelectionChanged(object sender, EventArgs e)
+        {
+            enableButton();
+        }
+
+
+        private void fldPoints_TextChanged(object sender, EventArgs e)
         {
             enableButton();
         }

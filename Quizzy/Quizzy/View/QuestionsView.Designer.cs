@@ -33,22 +33,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtQuestions = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.YoutubeCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
+            this.questionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.questiontextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.answerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YoutubeCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.youtubelinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roundquestionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.questionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dtQuestions
             // 
-            this.dtQuestions.AllowDrop = true;
+            this.dtQuestions.AllowUserToResizeColumns = false;
+            this.dtQuestions.AllowUserToResizeRows = false;
             this.dtQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -78,7 +79,7 @@
             this.dtQuestions.DataSource = this.questionBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(40)))), ((int)(((byte)(47)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -121,27 +122,9 @@
             this.btnAdd.MouseEnter += new System.EventHandler(this.btnAdd_MouseEnter);
             this.btnAdd.MouseLeave += new System.EventHandler(this.btnAdd_MouseLeave);
             // 
-            // YoutubeCln
+            // questionBindingSource
             // 
-            this.YoutubeCln.FillWeight = 38F;
-            this.YoutubeCln.HeaderText = "YT";
-            this.YoutubeCln.MinimumWidth = 38;
-            this.YoutubeCln.Name = "YoutubeCln";
-            this.YoutubeCln.ReadOnly = true;
-            this.YoutubeCln.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.YoutubeCln.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.YoutubeCln.Width = 38;
-            // 
-            // DeleteCln
-            // 
-            this.DeleteCln.FillWeight = 38F;
-            this.DeleteCln.HeaderText = "";
-            this.DeleteCln.MinimumWidth = 38;
-            this.DeleteCln.Name = "DeleteCln";
-            this.DeleteCln.ReadOnly = true;
-            this.DeleteCln.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DeleteCln.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.DeleteCln.Width = 38;
+            this.questionBindingSource.DataSource = typeof(Quizzy.Model.question);
             // 
             // questiontextDataGridViewTextBoxColumn
             // 
@@ -154,15 +137,40 @@
             // 
             this.answerDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.answerDataGridViewTextBoxColumn.DataPropertyName = "answer";
+            this.answerDataGridViewTextBoxColumn.FillWeight = 50F;
             this.answerDataGridViewTextBoxColumn.HeaderText = "Odgovor";
             this.answerDataGridViewTextBoxColumn.Name = "answerDataGridViewTextBoxColumn";
+            // 
+            // YoutubeCln
+            // 
+            this.YoutubeCln.FillWeight = 38F;
+            this.YoutubeCln.HeaderText = "YT";
+            this.YoutubeCln.MinimumWidth = 38;
+            this.YoutubeCln.Name = "YoutubeCln";
+            this.YoutubeCln.ReadOnly = true;
+            this.YoutubeCln.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.YoutubeCln.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.YoutubeCln.Width = 38;
             // 
             // youtubelinkDataGridViewTextBoxColumn
             // 
             this.youtubelinkDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.youtubelinkDataGridViewTextBoxColumn.DataPropertyName = "youtube_link";
+            this.youtubelinkDataGridViewTextBoxColumn.FillWeight = 50F;
             this.youtubelinkDataGridViewTextBoxColumn.HeaderText = "Youtube link";
             this.youtubelinkDataGridViewTextBoxColumn.Name = "youtubelinkDataGridViewTextBoxColumn";
+            this.youtubelinkDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // DeleteCln
+            // 
+            this.DeleteCln.FillWeight = 38F;
+            this.DeleteCln.HeaderText = "";
+            this.DeleteCln.MinimumWidth = 38;
+            this.DeleteCln.Name = "DeleteCln";
+            this.DeleteCln.ReadOnly = true;
+            this.DeleteCln.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DeleteCln.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DeleteCln.Width = 38;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -184,10 +192,6 @@
             this.roundquestionDataGridViewTextBoxColumn.HeaderText = "round_question";
             this.roundquestionDataGridViewTextBoxColumn.Name = "roundquestionDataGridViewTextBoxColumn";
             this.roundquestionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // questionBindingSource
-            // 
-            this.questionBindingSource.DataSource = typeof(Quizzy.Model.question);
             // 
             // QuestionsView
             // 
