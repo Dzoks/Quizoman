@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace Quizzy.Model
 {
     using System;
@@ -37,10 +39,11 @@ namespace Quizzy.Model
         {
             return question_text;
         }
+       
 
         public bool CheckValidity()
         {
-            return question_text?.Length > 0 && answer?.Length > 0 && ValidYoutubeLink();
+            return question_text?.Length > 0 && answer?.Length > 0 && Utility.IsEmptyOrWhiteSpace(question_text) && Utility.IsEmptyOrWhiteSpace(answer) && ValidYoutubeLink();
         }
 
         private bool ValidYoutubeLink()

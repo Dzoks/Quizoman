@@ -86,7 +86,7 @@ namespace Quizzy.View
             {
                 Round = new round()
                 {
-                    name = fldRound.Text,
+                    name = fldRound.Text.Trim(),
                     deleted = 0,
                     season = season,
                 };

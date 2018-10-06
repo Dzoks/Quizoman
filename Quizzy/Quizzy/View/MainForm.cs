@@ -698,25 +698,28 @@ namespace Quizzy
 
         private void seasonTreeView_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
-            if (String.IsNullOrEmpty(e.Label))
+            string trimmed=e.Label?.Trim();
+
+            if (String.IsNullOrEmpty(trimmed) || Utility.IsEmptyOrWhiteSpace(trimmed))
             {
                 e.CancelEdit = true;
                // new ErrorPopup("Naziv mora da postoji!").ShowDialog(this);
                 return;
             }
+
             else
             {
                 if (e.Node.Level == 0 &&
-                    seasonTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(t => t.Text == e.Label && t.Tag != e.Node.Tag) == null)
+                    seasonTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(t => t.Text == trimmed && t.Tag != e.Node.Tag) == null)
                 {
                     var season = e.Node.Tag as season;
-                    season.name = e.Label;
+                    season.name = trimmed;
 
                 }
-                else if (e.Node.Parent.Nodes.OfType<TreeNode>().FirstOrDefault(t => t.Text == e.Label && t.Tag!=e.Node.Tag) == null)
+                else if (e.Node.Parent.Nodes.OfType<TreeNode>().FirstOrDefault(t => t.Text == trimmed && t.Tag!=e.Node.Tag) == null)
                 {
                     var round = e.Node.Tag as round;
-                    round.name = e.Label;
+                    round.name = trimmed;
                 }
                 else
                 {
@@ -822,6 +825,18 @@ namespace Quizzy
             dtTeams.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldValue;
             
 
+        }
+
+        private void dodajteSezonuToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            ToolStripMenuItem TSMI = sender as ToolStripMenuItem;
+            TSMI.ForeColor = Color.Black;
+        }
+
+        private void dodajteSezonuToolStripMenuItem_MouseLeave(object sender, EventArgs e)
+        {
+            ToolStripMenuItem TSMI = sender as ToolStripMenuItem;
+            TSMI.ForeColor = Color.White;
         }
     }
 }

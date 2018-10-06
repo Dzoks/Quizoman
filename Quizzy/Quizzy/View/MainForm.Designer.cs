@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.topPanel = new System.Windows.Forms.Panel();
             this.btnQuestion = new System.Windows.Forms.Button();
             this.btnQuiz = new System.Windows.Forms.Button();
@@ -50,6 +51,11 @@
             this.TeamCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeamDeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.dtQuestions = new System.Windows.Forms.DataGridView();
+            this.UpCln = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DownCln = new System.Windows.Forms.DataGridViewImageColumn();
+            this.AnswerCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YoutubeCln = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.dtSeasonTeams = new System.Windows.Forms.DataGridView();
             this.SeasonCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddTeam = new System.Windows.Forms.Button();
@@ -58,6 +64,14 @@
             this.menuAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dodajteSezonuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajteKvizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.questionnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.questionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roundidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.questionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deletedDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roundDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roundquestionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,19 +88,6 @@
             this.seasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seasonhasteamBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.questionsView = new Quizzy.View.QuestionsView();
-            this.UpCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DownCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.questionnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.questionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnswerCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YoutubeCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roundidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.questionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deletedDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roundDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTeams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).BeginInit();
@@ -420,6 +421,50 @@
             this.dtQuestions.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dtQuestions_DataBindingComplete);
             this.dtQuestions.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dtQuestions_DataError);
             // 
+            // UpCln
+            // 
+            this.UpCln.FillWeight = 38F;
+            this.UpCln.HeaderText = "";
+            this.UpCln.MinimumWidth = 38;
+            this.UpCln.Name = "UpCln";
+            this.UpCln.ReadOnly = true;
+            this.UpCln.Width = 38;
+            // 
+            // DownCln
+            // 
+            this.DownCln.FillWeight = 38F;
+            this.DownCln.HeaderText = "";
+            this.DownCln.MinimumWidth = 38;
+            this.DownCln.Name = "DownCln";
+            this.DownCln.ReadOnly = true;
+            this.DownCln.Width = 38;
+            // 
+            // AnswerCln
+            // 
+            this.AnswerCln.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AnswerCln.FillWeight = 50F;
+            this.AnswerCln.HeaderText = "Odgovor";
+            this.AnswerCln.Name = "AnswerCln";
+            this.AnswerCln.ReadOnly = true;
+            // 
+            // YoutubeCln
+            // 
+            this.YoutubeCln.FillWeight = 38F;
+            this.YoutubeCln.HeaderText = "";
+            this.YoutubeCln.MinimumWidth = 38;
+            this.YoutubeCln.Name = "YoutubeCln";
+            this.YoutubeCln.ReadOnly = true;
+            this.YoutubeCln.Width = 38;
+            // 
+            // DeleteCln
+            // 
+            this.DeleteCln.FillWeight = 38F;
+            this.DeleteCln.HeaderText = "";
+            this.DeleteCln.MinimumWidth = 38;
+            this.DeleteCln.Name = "DeleteCln";
+            this.DeleteCln.ReadOnly = true;
+            this.DeleteCln.Width = 38;
+            // 
             // dtSeasonTeams
             // 
             this.dtSeasonTeams.AllowUserToResizeColumns = false;
@@ -567,6 +612,8 @@
             this.dodajteSezonuToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.dodajteSezonuToolStripMenuItem.Text = "Dodajte sezonu";
             this.dodajteSezonuToolStripMenuItem.Click += new System.EventHandler(this.dodajteSezonuToolStripMenuItem_Click);
+            this.dodajteSezonuToolStripMenuItem.MouseEnter += new System.EventHandler(this.dodajteSezonuToolStripMenuItem_MouseEnter);
+            this.dodajteSezonuToolStripMenuItem.MouseLeave += new System.EventHandler(this.dodajteSezonuToolStripMenuItem_MouseLeave);
             // 
             // dodajteKvizToolStripMenuItem
             // 
@@ -575,6 +622,75 @@
             this.dodajteKvizToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.dodajteKvizToolStripMenuItem.Text = "Dodajte kviz";
             this.dodajteKvizToolStripMenuItem.Click += new System.EventHandler(this.dodajteKvizToolStripMenuItem_Click);
+            this.dodajteKvizToolStripMenuItem.MouseEnter += new System.EventHandler(this.dodajteSezonuToolStripMenuItem_MouseEnter);
+            this.dodajteKvizToolStripMenuItem.MouseLeave += new System.EventHandler(this.dodajteSezonuToolStripMenuItem_MouseLeave);
+            // 
+            // questionnumberDataGridViewTextBoxColumn
+            // 
+            this.questionnumberDataGridViewTextBoxColumn.DataPropertyName = "question_number";
+            this.questionnumberDataGridViewTextBoxColumn.FillWeight = 45F;
+            this.questionnumberDataGridViewTextBoxColumn.HeaderText = "Broj";
+            this.questionnumberDataGridViewTextBoxColumn.MinimumWidth = 45;
+            this.questionnumberDataGridViewTextBoxColumn.Name = "questionnumberDataGridViewTextBoxColumn";
+            this.questionnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.questionnumberDataGridViewTextBoxColumn.Width = 45;
+            // 
+            // questionDataGridViewTextBoxColumn
+            // 
+            this.questionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.questionDataGridViewTextBoxColumn.DataPropertyName = "question";
+            this.questionDataGridViewTextBoxColumn.HeaderText = "Pitanje";
+            this.questionDataGridViewTextBoxColumn.Name = "questionDataGridViewTextBoxColumn";
+            this.questionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pointsDataGridViewTextBoxColumn
+            // 
+            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "points";
+            this.pointsDataGridViewTextBoxColumn.FillWeight = 58F;
+            this.pointsDataGridViewTextBoxColumn.HeaderText = "Bodovi";
+            this.pointsDataGridViewTextBoxColumn.MinimumWidth = 58;
+            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
+            this.pointsDataGridViewTextBoxColumn.Width = 58;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // roundidDataGridViewTextBoxColumn1
+            // 
+            this.roundidDataGridViewTextBoxColumn1.DataPropertyName = "round_id";
+            this.roundidDataGridViewTextBoxColumn1.HeaderText = "round_id";
+            this.roundidDataGridViewTextBoxColumn1.Name = "roundidDataGridViewTextBoxColumn1";
+            this.roundidDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.roundidDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // questionidDataGridViewTextBoxColumn
+            // 
+            this.questionidDataGridViewTextBoxColumn.DataPropertyName = "question_id";
+            this.questionidDataGridViewTextBoxColumn.HeaderText = "question_id";
+            this.questionidDataGridViewTextBoxColumn.Name = "questionidDataGridViewTextBoxColumn";
+            this.questionidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.questionidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // deletedDataGridViewTextBoxColumn2
+            // 
+            this.deletedDataGridViewTextBoxColumn2.DataPropertyName = "deleted";
+            this.deletedDataGridViewTextBoxColumn2.HeaderText = "deleted";
+            this.deletedDataGridViewTextBoxColumn2.Name = "deletedDataGridViewTextBoxColumn2";
+            this.deletedDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.deletedDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // roundDataGridViewTextBoxColumn1
+            // 
+            this.roundDataGridViewTextBoxColumn1.DataPropertyName = "round";
+            this.roundDataGridViewTextBoxColumn1.HeaderText = "round";
+            this.roundDataGridViewTextBoxColumn1.Name = "roundDataGridViewTextBoxColumn1";
+            this.roundDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.roundDataGridViewTextBoxColumn1.Visible = false;
             // 
             // roundquestionBindingSource
             // 
@@ -699,117 +815,6 @@
             this.questionsView.Size = new System.Drawing.Size(882, 558);
             this.questionsView.TabIndex = 6;
             // 
-            // UpCln
-            // 
-            this.UpCln.FillWeight = 38F;
-            this.UpCln.HeaderText = "";
-            this.UpCln.MinimumWidth = 38;
-            this.UpCln.Name = "UpCln";
-            this.UpCln.ReadOnly = true;
-            this.UpCln.Width = 38;
-            // 
-            // DownCln
-            // 
-            this.DownCln.FillWeight = 38F;
-            this.DownCln.HeaderText = "";
-            this.DownCln.MinimumWidth = 38;
-            this.DownCln.Name = "DownCln";
-            this.DownCln.ReadOnly = true;
-            this.DownCln.Width = 38;
-            // 
-            // questionnumberDataGridViewTextBoxColumn
-            // 
-            this.questionnumberDataGridViewTextBoxColumn.DataPropertyName = "question_number";
-            this.questionnumberDataGridViewTextBoxColumn.FillWeight = 45F;
-            this.questionnumberDataGridViewTextBoxColumn.HeaderText = "Broj";
-            this.questionnumberDataGridViewTextBoxColumn.MinimumWidth = 45;
-            this.questionnumberDataGridViewTextBoxColumn.Name = "questionnumberDataGridViewTextBoxColumn";
-            this.questionnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.questionnumberDataGridViewTextBoxColumn.Width = 45;
-            // 
-            // questionDataGridViewTextBoxColumn
-            // 
-            this.questionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.questionDataGridViewTextBoxColumn.DataPropertyName = "question";
-            this.questionDataGridViewTextBoxColumn.HeaderText = "Pitanje";
-            this.questionDataGridViewTextBoxColumn.Name = "questionDataGridViewTextBoxColumn";
-            this.questionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // AnswerCln
-            // 
-            this.AnswerCln.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AnswerCln.FillWeight = 50F;
-            this.AnswerCln.HeaderText = "Odgovor";
-            this.AnswerCln.Name = "AnswerCln";
-            this.AnswerCln.ReadOnly = true;
-            // 
-            // YoutubeCln
-            // 
-            this.YoutubeCln.FillWeight = 38F;
-            this.YoutubeCln.HeaderText = "";
-            this.YoutubeCln.MinimumWidth = 38;
-            this.YoutubeCln.Name = "YoutubeCln";
-            this.YoutubeCln.ReadOnly = true;
-            this.YoutubeCln.Width = 38;
-            // 
-            // pointsDataGridViewTextBoxColumn
-            // 
-            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "points";
-            this.pointsDataGridViewTextBoxColumn.FillWeight = 58F;
-            this.pointsDataGridViewTextBoxColumn.HeaderText = "Bodovi";
-            this.pointsDataGridViewTextBoxColumn.MinimumWidth = 58;
-            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
-            this.pointsDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // DeleteCln
-            // 
-            this.DeleteCln.FillWeight = 38F;
-            this.DeleteCln.HeaderText = "";
-            this.DeleteCln.MinimumWidth = 38;
-            this.DeleteCln.Name = "DeleteCln";
-            this.DeleteCln.ReadOnly = true;
-            this.DeleteCln.Width = 38;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // roundidDataGridViewTextBoxColumn1
-            // 
-            this.roundidDataGridViewTextBoxColumn1.DataPropertyName = "round_id";
-            this.roundidDataGridViewTextBoxColumn1.HeaderText = "round_id";
-            this.roundidDataGridViewTextBoxColumn1.Name = "roundidDataGridViewTextBoxColumn1";
-            this.roundidDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.roundidDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // questionidDataGridViewTextBoxColumn
-            // 
-            this.questionidDataGridViewTextBoxColumn.DataPropertyName = "question_id";
-            this.questionidDataGridViewTextBoxColumn.HeaderText = "question_id";
-            this.questionidDataGridViewTextBoxColumn.Name = "questionidDataGridViewTextBoxColumn";
-            this.questionidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.questionidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // deletedDataGridViewTextBoxColumn2
-            // 
-            this.deletedDataGridViewTextBoxColumn2.DataPropertyName = "deleted";
-            this.deletedDataGridViewTextBoxColumn2.HeaderText = "deleted";
-            this.deletedDataGridViewTextBoxColumn2.Name = "deletedDataGridViewTextBoxColumn2";
-            this.deletedDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.deletedDataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // roundDataGridViewTextBoxColumn1
-            // 
-            this.roundDataGridViewTextBoxColumn1.DataPropertyName = "round";
-            this.roundDataGridViewTextBoxColumn1.HeaderText = "round";
-            this.roundDataGridViewTextBoxColumn1.Name = "roundDataGridViewTextBoxColumn1";
-            this.roundDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.roundDataGridViewTextBoxColumn1.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -829,6 +834,8 @@
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.questionsView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(884, 600);
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

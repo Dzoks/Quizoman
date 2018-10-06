@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Quizzy
 {
@@ -14,6 +15,10 @@ namespace Quizzy
         {
            var youtubeMatch=YoutubeVideoRegex.Match(url);
             return "https://www.youtube.com/embed/"+ youtubeMatch.Groups[youtubeMatch.Groups.Count - 1].Value;
+        }
+        public static bool IsEmptyOrWhiteSpace(string value)
+        {
+            return value.All(char.IsWhiteSpace);
         }
     }
 }

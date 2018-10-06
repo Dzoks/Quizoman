@@ -80,7 +80,7 @@ namespace Quizzy.View
             {
                 Season = new season()
                 {
-                    name = fldSeason.Text,
+                    name = fldSeason.Text.Trim(),
                     deleted = 0
                 };
                 database.seasons.Add(Season);

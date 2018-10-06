@@ -49,8 +49,8 @@ namespace Quizzy.View
             var question = new question
             {
                 deleted = 0,
-                question_text = fldQuestion.Text,
-                answer = fldAnswer.Text,
+                question_text = fldQuestion.Text.Trim(),
+                answer = fldAnswer.Text.Trim(),
                 youtube_link = fldYoutube.Text // this needs converting
             };
             database.questions.Add(question);
