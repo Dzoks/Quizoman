@@ -49,37 +49,31 @@
             this.lblPlaces = new System.Windows.Forms.Label();
             this.dtTeams = new System.Windows.Forms.DataGridView();
             this.TeamCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeamDeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
+            this.teamidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roundidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deletedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamroundBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtQuestions = new System.Windows.Forms.DataGridView();
             this.UpCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.DownCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.AnswerCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YoutubeCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dtSeasonTeams = new System.Windows.Forms.DataGridView();
-            this.SeasonCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddTeam = new System.Windows.Forms.Button();
-            this.btnAddQuestion = new System.Windows.Forms.Button();
-            this.btnAddTreeView = new System.Windows.Forms.Button();
-            this.menuAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.dodajteSezonuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajteKvizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.questionnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnswerCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YoutubeCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteCln = new System.Windows.Forms.DataGridViewImageColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roundidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.questionidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deletedDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roundDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roundquestionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roundidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deletedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roundDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamroundBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dtSeasonTeams = new System.Windows.Forms.DataGridView();
+            this.SeasonCountCln = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seasonidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,15 +81,21 @@
             this.deletedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.seasonhasteamBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddTeam = new System.Windows.Forms.Button();
+            this.btnAddQuestion = new System.Windows.Forms.Button();
+            this.btnAddTreeView = new System.Windows.Forms.Button();
+            this.menuAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dodajteSezonuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajteKvizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.questionsView = new Quizzy.View.QuestionsView();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTeams)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtSeasonTeams)).BeginInit();
-            this.menuAdd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundquestionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamroundBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roundquestionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSeasonTeams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seasonhasteamBindingSource)).BeginInit();
+            this.menuAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel
@@ -223,6 +223,7 @@
             this.seasonTreeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
             this.seasonTreeView.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seasonTreeView.ForeColor = System.Drawing.Color.White;
+            this.seasonTreeView.HotTracking = true;
             this.seasonTreeView.LabelEdit = true;
             this.seasonTreeView.Location = new System.Drawing.Point(0, 41);
             this.seasonTreeView.Name = "seasonTreeView";
@@ -349,6 +350,23 @@
             this.TeamCountCln.ReadOnly = true;
             this.TeamCountCln.Width = 60;
             // 
+            // teamDataGridViewTextBoxColumn1
+            // 
+            this.teamDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.teamDataGridViewTextBoxColumn1.DataPropertyName = "team";
+            this.teamDataGridViewTextBoxColumn1.HeaderText = "Naziv tima";
+            this.teamDataGridViewTextBoxColumn1.Name = "teamDataGridViewTextBoxColumn1";
+            this.teamDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn1
+            // 
+            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn1.FillWeight = 60F;
+            this.totalDataGridViewTextBoxColumn1.HeaderText = "Bodovi";
+            this.totalDataGridViewTextBoxColumn1.MinimumWidth = 60;
+            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
+            this.totalDataGridViewTextBoxColumn1.Width = 60;
+            // 
             // TeamDeleteCln
             // 
             this.TeamDeleteCln.FillWeight = 38F;
@@ -356,6 +374,42 @@
             this.TeamDeleteCln.MinimumWidth = 38;
             this.TeamDeleteCln.Name = "TeamDeleteCln";
             this.TeamDeleteCln.Width = 38;
+            // 
+            // teamidDataGridViewTextBoxColumn1
+            // 
+            this.teamidDataGridViewTextBoxColumn1.DataPropertyName = "team_id";
+            this.teamidDataGridViewTextBoxColumn1.HeaderText = "team_id";
+            this.teamidDataGridViewTextBoxColumn1.Name = "teamidDataGridViewTextBoxColumn1";
+            this.teamidDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.teamidDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // roundidDataGridViewTextBoxColumn
+            // 
+            this.roundidDataGridViewTextBoxColumn.DataPropertyName = "round_id";
+            this.roundidDataGridViewTextBoxColumn.HeaderText = "round_id";
+            this.roundidDataGridViewTextBoxColumn.Name = "roundidDataGridViewTextBoxColumn";
+            this.roundidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roundidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // deletedDataGridViewTextBoxColumn1
+            // 
+            this.deletedDataGridViewTextBoxColumn1.DataPropertyName = "deleted";
+            this.deletedDataGridViewTextBoxColumn1.HeaderText = "deleted";
+            this.deletedDataGridViewTextBoxColumn1.Name = "deletedDataGridViewTextBoxColumn1";
+            this.deletedDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.deletedDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // roundDataGridViewTextBoxColumn
+            // 
+            this.roundDataGridViewTextBoxColumn.DataPropertyName = "round";
+            this.roundDataGridViewTextBoxColumn.HeaderText = "round";
+            this.roundDataGridViewTextBoxColumn.Name = "roundDataGridViewTextBoxColumn";
+            this.roundDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roundDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // teamroundBindingSource
+            // 
+            this.teamroundBindingSource.DataSource = typeof(Quizzy.Model.team_round);
             // 
             // dtQuestions
             // 
@@ -439,6 +493,24 @@
             this.DownCln.ReadOnly = true;
             this.DownCln.Width = 38;
             // 
+            // questionnumberDataGridViewTextBoxColumn
+            // 
+            this.questionnumberDataGridViewTextBoxColumn.DataPropertyName = "question_number";
+            this.questionnumberDataGridViewTextBoxColumn.FillWeight = 45F;
+            this.questionnumberDataGridViewTextBoxColumn.HeaderText = "Broj";
+            this.questionnumberDataGridViewTextBoxColumn.MinimumWidth = 45;
+            this.questionnumberDataGridViewTextBoxColumn.Name = "questionnumberDataGridViewTextBoxColumn";
+            this.questionnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.questionnumberDataGridViewTextBoxColumn.Width = 45;
+            // 
+            // questionDataGridViewTextBoxColumn
+            // 
+            this.questionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.questionDataGridViewTextBoxColumn.DataPropertyName = "question";
+            this.questionDataGridViewTextBoxColumn.HeaderText = "Pitanje";
+            this.questionDataGridViewTextBoxColumn.Name = "questionDataGridViewTextBoxColumn";
+            this.questionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // AnswerCln
             // 
             this.AnswerCln.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -456,6 +528,15 @@
             this.YoutubeCln.ReadOnly = true;
             this.YoutubeCln.Width = 38;
             // 
+            // pointsDataGridViewTextBoxColumn
+            // 
+            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "points";
+            this.pointsDataGridViewTextBoxColumn.FillWeight = 58F;
+            this.pointsDataGridViewTextBoxColumn.HeaderText = "Bodovi";
+            this.pointsDataGridViewTextBoxColumn.MinimumWidth = 58;
+            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
+            this.pointsDataGridViewTextBoxColumn.Width = 58;
+            // 
             // DeleteCln
             // 
             this.DeleteCln.FillWeight = 38F;
@@ -464,6 +545,50 @@
             this.DeleteCln.Name = "DeleteCln";
             this.DeleteCln.ReadOnly = true;
             this.DeleteCln.Width = 38;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // roundidDataGridViewTextBoxColumn1
+            // 
+            this.roundidDataGridViewTextBoxColumn1.DataPropertyName = "round_id";
+            this.roundidDataGridViewTextBoxColumn1.HeaderText = "round_id";
+            this.roundidDataGridViewTextBoxColumn1.Name = "roundidDataGridViewTextBoxColumn1";
+            this.roundidDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.roundidDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // questionidDataGridViewTextBoxColumn
+            // 
+            this.questionidDataGridViewTextBoxColumn.DataPropertyName = "question_id";
+            this.questionidDataGridViewTextBoxColumn.HeaderText = "question_id";
+            this.questionidDataGridViewTextBoxColumn.Name = "questionidDataGridViewTextBoxColumn";
+            this.questionidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.questionidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // deletedDataGridViewTextBoxColumn2
+            // 
+            this.deletedDataGridViewTextBoxColumn2.DataPropertyName = "deleted";
+            this.deletedDataGridViewTextBoxColumn2.HeaderText = "deleted";
+            this.deletedDataGridViewTextBoxColumn2.Name = "deletedDataGridViewTextBoxColumn2";
+            this.deletedDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.deletedDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // roundDataGridViewTextBoxColumn1
+            // 
+            this.roundDataGridViewTextBoxColumn1.DataPropertyName = "round";
+            this.roundDataGridViewTextBoxColumn1.HeaderText = "round";
+            this.roundDataGridViewTextBoxColumn1.Name = "roundDataGridViewTextBoxColumn1";
+            this.roundDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.roundDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // roundquestionBindingSource
+            // 
+            this.roundquestionBindingSource.DataSource = typeof(Quizzy.Model.round_question);
             // 
             // dtSeasonTeams
             // 
@@ -525,6 +650,60 @@
             this.SeasonCountCln.Name = "SeasonCountCln";
             this.SeasonCountCln.ReadOnly = true;
             this.SeasonCountCln.Width = 60;
+            // 
+            // teamDataGridViewTextBoxColumn
+            // 
+            this.teamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.teamDataGridViewTextBoxColumn.DataPropertyName = "team";
+            this.teamDataGridViewTextBoxColumn.HeaderText = "Naziv tima";
+            this.teamDataGridViewTextBoxColumn.Name = "teamDataGridViewTextBoxColumn";
+            this.teamDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalDataGridViewTextBoxColumn
+            // 
+            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
+            this.totalDataGridViewTextBoxColumn.FillWeight = 69F;
+            this.totalDataGridViewTextBoxColumn.HeaderText = "Bodovi";
+            this.totalDataGridViewTextBoxColumn.MinimumWidth = 60;
+            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
+            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.totalDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // seasonidDataGridViewTextBoxColumn
+            // 
+            this.seasonidDataGridViewTextBoxColumn.DataPropertyName = "season_id";
+            this.seasonidDataGridViewTextBoxColumn.HeaderText = "season_id";
+            this.seasonidDataGridViewTextBoxColumn.Name = "seasonidDataGridViewTextBoxColumn";
+            this.seasonidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.seasonidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // teamidDataGridViewTextBoxColumn
+            // 
+            this.teamidDataGridViewTextBoxColumn.DataPropertyName = "team_id";
+            this.teamidDataGridViewTextBoxColumn.HeaderText = "team_id";
+            this.teamidDataGridViewTextBoxColumn.Name = "teamidDataGridViewTextBoxColumn";
+            this.teamidDataGridViewTextBoxColumn.ReadOnly = true;
+            this.teamidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // deletedDataGridViewTextBoxColumn
+            // 
+            this.deletedDataGridViewTextBoxColumn.DataPropertyName = "deleted";
+            this.deletedDataGridViewTextBoxColumn.HeaderText = "deleted";
+            this.deletedDataGridViewTextBoxColumn.Name = "deletedDataGridViewTextBoxColumn";
+            this.deletedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.deletedDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // seasonDataGridViewTextBoxColumn
+            // 
+            this.seasonDataGridViewTextBoxColumn.DataPropertyName = "season";
+            this.seasonDataGridViewTextBoxColumn.HeaderText = "season";
+            this.seasonDataGridViewTextBoxColumn.Name = "seasonDataGridViewTextBoxColumn";
+            this.seasonDataGridViewTextBoxColumn.ReadOnly = true;
+            this.seasonDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // seasonhasteamBindingSource
+            // 
+            this.seasonhasteamBindingSource.DataSource = typeof(Quizzy.Model.season_has_team);
             // 
             // btnAddTeam
             // 
@@ -625,184 +804,6 @@
             this.dodajteKvizToolStripMenuItem.MouseEnter += new System.EventHandler(this.dodajteSezonuToolStripMenuItem_MouseEnter);
             this.dodajteKvizToolStripMenuItem.MouseLeave += new System.EventHandler(this.dodajteSezonuToolStripMenuItem_MouseLeave);
             // 
-            // questionnumberDataGridViewTextBoxColumn
-            // 
-            this.questionnumberDataGridViewTextBoxColumn.DataPropertyName = "question_number";
-            this.questionnumberDataGridViewTextBoxColumn.FillWeight = 45F;
-            this.questionnumberDataGridViewTextBoxColumn.HeaderText = "Broj";
-            this.questionnumberDataGridViewTextBoxColumn.MinimumWidth = 45;
-            this.questionnumberDataGridViewTextBoxColumn.Name = "questionnumberDataGridViewTextBoxColumn";
-            this.questionnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.questionnumberDataGridViewTextBoxColumn.Width = 45;
-            // 
-            // questionDataGridViewTextBoxColumn
-            // 
-            this.questionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.questionDataGridViewTextBoxColumn.DataPropertyName = "question";
-            this.questionDataGridViewTextBoxColumn.HeaderText = "Pitanje";
-            this.questionDataGridViewTextBoxColumn.Name = "questionDataGridViewTextBoxColumn";
-            this.questionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pointsDataGridViewTextBoxColumn
-            // 
-            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "points";
-            this.pointsDataGridViewTextBoxColumn.FillWeight = 58F;
-            this.pointsDataGridViewTextBoxColumn.HeaderText = "Bodovi";
-            this.pointsDataGridViewTextBoxColumn.MinimumWidth = 58;
-            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
-            this.pointsDataGridViewTextBoxColumn.Width = 58;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // roundidDataGridViewTextBoxColumn1
-            // 
-            this.roundidDataGridViewTextBoxColumn1.DataPropertyName = "round_id";
-            this.roundidDataGridViewTextBoxColumn1.HeaderText = "round_id";
-            this.roundidDataGridViewTextBoxColumn1.Name = "roundidDataGridViewTextBoxColumn1";
-            this.roundidDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.roundidDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // questionidDataGridViewTextBoxColumn
-            // 
-            this.questionidDataGridViewTextBoxColumn.DataPropertyName = "question_id";
-            this.questionidDataGridViewTextBoxColumn.HeaderText = "question_id";
-            this.questionidDataGridViewTextBoxColumn.Name = "questionidDataGridViewTextBoxColumn";
-            this.questionidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.questionidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // deletedDataGridViewTextBoxColumn2
-            // 
-            this.deletedDataGridViewTextBoxColumn2.DataPropertyName = "deleted";
-            this.deletedDataGridViewTextBoxColumn2.HeaderText = "deleted";
-            this.deletedDataGridViewTextBoxColumn2.Name = "deletedDataGridViewTextBoxColumn2";
-            this.deletedDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.deletedDataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // roundDataGridViewTextBoxColumn1
-            // 
-            this.roundDataGridViewTextBoxColumn1.DataPropertyName = "round";
-            this.roundDataGridViewTextBoxColumn1.HeaderText = "round";
-            this.roundDataGridViewTextBoxColumn1.Name = "roundDataGridViewTextBoxColumn1";
-            this.roundDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.roundDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // roundquestionBindingSource
-            // 
-            this.roundquestionBindingSource.DataSource = typeof(Quizzy.Model.round_question);
-            // 
-            // teamDataGridViewTextBoxColumn1
-            // 
-            this.teamDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.teamDataGridViewTextBoxColumn1.DataPropertyName = "team";
-            this.teamDataGridViewTextBoxColumn1.HeaderText = "Naziv tima";
-            this.teamDataGridViewTextBoxColumn1.Name = "teamDataGridViewTextBoxColumn1";
-            this.teamDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // totalDataGridViewTextBoxColumn1
-            // 
-            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn1.FillWeight = 60F;
-            this.totalDataGridViewTextBoxColumn1.HeaderText = "Bodovi";
-            this.totalDataGridViewTextBoxColumn1.MinimumWidth = 60;
-            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
-            this.totalDataGridViewTextBoxColumn1.Width = 60;
-            // 
-            // teamidDataGridViewTextBoxColumn1
-            // 
-            this.teamidDataGridViewTextBoxColumn1.DataPropertyName = "team_id";
-            this.teamidDataGridViewTextBoxColumn1.HeaderText = "team_id";
-            this.teamidDataGridViewTextBoxColumn1.Name = "teamidDataGridViewTextBoxColumn1";
-            this.teamidDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.teamidDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // roundidDataGridViewTextBoxColumn
-            // 
-            this.roundidDataGridViewTextBoxColumn.DataPropertyName = "round_id";
-            this.roundidDataGridViewTextBoxColumn.HeaderText = "round_id";
-            this.roundidDataGridViewTextBoxColumn.Name = "roundidDataGridViewTextBoxColumn";
-            this.roundidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roundidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // deletedDataGridViewTextBoxColumn1
-            // 
-            this.deletedDataGridViewTextBoxColumn1.DataPropertyName = "deleted";
-            this.deletedDataGridViewTextBoxColumn1.HeaderText = "deleted";
-            this.deletedDataGridViewTextBoxColumn1.Name = "deletedDataGridViewTextBoxColumn1";
-            this.deletedDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.deletedDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // roundDataGridViewTextBoxColumn
-            // 
-            this.roundDataGridViewTextBoxColumn.DataPropertyName = "round";
-            this.roundDataGridViewTextBoxColumn.HeaderText = "round";
-            this.roundDataGridViewTextBoxColumn.Name = "roundDataGridViewTextBoxColumn";
-            this.roundDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roundDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // teamroundBindingSource
-            // 
-            this.teamroundBindingSource.DataSource = typeof(Quizzy.Model.team_round);
-            // 
-            // teamDataGridViewTextBoxColumn
-            // 
-            this.teamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.teamDataGridViewTextBoxColumn.DataPropertyName = "team";
-            this.teamDataGridViewTextBoxColumn.HeaderText = "Naziv tima";
-            this.teamDataGridViewTextBoxColumn.Name = "teamDataGridViewTextBoxColumn";
-            this.teamDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalDataGridViewTextBoxColumn
-            // 
-            this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn.FillWeight = 69F;
-            this.totalDataGridViewTextBoxColumn.HeaderText = "Bodovi";
-            this.totalDataGridViewTextBoxColumn.MinimumWidth = 60;
-            this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
-            this.totalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // seasonidDataGridViewTextBoxColumn
-            // 
-            this.seasonidDataGridViewTextBoxColumn.DataPropertyName = "season_id";
-            this.seasonidDataGridViewTextBoxColumn.HeaderText = "season_id";
-            this.seasonidDataGridViewTextBoxColumn.Name = "seasonidDataGridViewTextBoxColumn";
-            this.seasonidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seasonidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // teamidDataGridViewTextBoxColumn
-            // 
-            this.teamidDataGridViewTextBoxColumn.DataPropertyName = "team_id";
-            this.teamidDataGridViewTextBoxColumn.HeaderText = "team_id";
-            this.teamidDataGridViewTextBoxColumn.Name = "teamidDataGridViewTextBoxColumn";
-            this.teamidDataGridViewTextBoxColumn.ReadOnly = true;
-            this.teamidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // deletedDataGridViewTextBoxColumn
-            // 
-            this.deletedDataGridViewTextBoxColumn.DataPropertyName = "deleted";
-            this.deletedDataGridViewTextBoxColumn.HeaderText = "deleted";
-            this.deletedDataGridViewTextBoxColumn.Name = "deletedDataGridViewTextBoxColumn";
-            this.deletedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.deletedDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // seasonDataGridViewTextBoxColumn
-            // 
-            this.seasonDataGridViewTextBoxColumn.DataPropertyName = "season";
-            this.seasonDataGridViewTextBoxColumn.HeaderText = "season";
-            this.seasonDataGridViewTextBoxColumn.Name = "seasonDataGridViewTextBoxColumn";
-            this.seasonDataGridViewTextBoxColumn.ReadOnly = true;
-            this.seasonDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // seasonhasteamBindingSource
-            // 
-            this.seasonhasteamBindingSource.DataSource = typeof(Quizzy.Model.season_has_team);
-            // 
             // questionsView
             // 
             this.questionsView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -843,12 +844,12 @@
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtTeams)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtSeasonTeams)).EndInit();
-            this.menuAdd.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.roundquestionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamroundBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtQuestions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roundquestionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSeasonTeams)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seasonhasteamBindingSource)).EndInit();
+            this.menuAdd.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -43,7 +43,7 @@ namespace Quizzy.Model
 
         public bool CheckValidity()
         {
-            return question_text?.Length > 0 && answer?.Length > 0 && Utility.IsEmptyOrWhiteSpace(question_text) && Utility.IsEmptyOrWhiteSpace(answer) && ValidYoutubeLink();
+            return question_text?.Length > 0 && answer?.Length > 0 && !Utility.IsEmptyOrWhiteSpace(question_text) && !Utility.IsEmptyOrWhiteSpace(answer) && ValidYoutubeLink();
         }
 
         private bool ValidYoutubeLink()

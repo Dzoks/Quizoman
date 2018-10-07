@@ -25,7 +25,7 @@ namespace Quizzy.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("quizoman_db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("quizzy_db")]
         public string Database {
             get {
                 return ((string)(this["Database"]));
